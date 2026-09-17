@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is financial literacy? — Mintly</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="nav-group">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="financial-literacy.html">Lessons</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+      </ul>
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" width="24" height="24" alt="">
+      Mintly
+    </a>
+  </div>
+</header>
+
+<main>
+  <article class="lesson-body">
+    <div class="eyebrow">Financial Literacy · Lesson 1</div>
+    <h1>What is financial literacy?</h1>
+
+    <p>Financial literacy is simply <strong>knowing how to handle money well</strong> — how to earn it, spend it, save it, and grow it, without letting it stress you out or control you.</p>
+
+    <p>It's not about being rich. Plenty of people who earn a lot of money still struggle, because no one ever taught them how money actually works. Financial literacy is the set of skills that makes that struggle avoidable.</p>
+
+    <h2>Why it matters, starting now</h2>
+    <p>Most adults say they wish they'd learned about money earlier. The habits you build as a teen — how you think about spending, saving, and debt — tend to stick for life. Starting at 13–18 means you get a head start that most people never get.</p>
+
+    <h2>The five building blocks</h2>
+    <p>Everything in personal finance comes back to five basic skills:</p>
+    <ul>
+      <li><strong>Earning</strong> — understanding where money comes from (a job, allowance, a side hustle) and what it's really worth.</li>
+      <li><strong>Spending</strong> — telling the difference between a need and a want, and spending on purpose instead of by accident.</li>
+      <li><strong>Saving</strong> — setting money aside before you spend the rest, so future-you has options.</li>
+      <li><strong>Investing</strong> — putting money to work so it grows over time, instead of just sitting still.</li>
+      <li><strong>Borrowing</strong> — understanding debt and credit, so it works for you instead of against you.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Quick example</strong>
+      Two people each save $20 a month starting at age 15. One keeps it in cash under a mattress. The other invests it and earns an average 7% a year. By age 65, the difference is well over $100,000 — from the exact same habit, just one extra step: understanding how money grows.
+    </div>
+
+    <h2>What's next</h2>
+    <p>In the lessons ahead, you'll go through each building block one at a time — starting with budgeting, so you always know where your money is actually going.</p>
+  </article>
+
+  <section class="quiz">
+    <div class="quiz-box">
+      <h2>Quick check</h2>
+
+      <div class="quiz-question">1. Financial literacy is mainly about...</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Being born into a wealthy family</button>
+        <button class="quiz-option" data-correct="true">Knowing how to earn, spend, save, and grow money well</button>
+        <button class="quiz-option" data-correct="false">Only knowing how to invest in stocks</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">2. Which of these is NOT one of the five building blocks in this lesson?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Saving</button>
+        <button class="quiz-option" data-correct="false">Borrowing</button>
+        <button class="quiz-option" data-correct="true">Gambling</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+  </section>
+
+  <div class="lesson-nav">
+    <a class="btn btn-secondary" href="financial-literacy.html">← All lessons</a>
+    <button class="btn" id="complete-btn">Mark lesson complete ✓</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Mintly · Financial learning for the next generation</div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+  Mintly.requireSubscription();
+  document.querySelectorAll('[data-quiz]').forEach((group) => {
+    const feedback = group.nextElementSibling;
+    group.querySelectorAll('.quiz-option').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (group.dataset.answered) return;
+        group.dataset.answered = 'true';
+        const isCorrect = btn.dataset.correct === 'true';
+        btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+        if (!isCorrect) {
+          group.querySelector('[data-correct="true"]').classList.add('correct');
+        }
+        feedback.textContent = isCorrect ? 'Correct! Nice work.' : 'Not quite — the correct answer is highlighted.';
+        feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
+      });
+    });
+  });
+
+  const completeBtn = document.getElementById('complete-btn');
+  function renderComplete() {
+    if (Mintly.isLessonComplete('lesson-1')) {
+      completeBtn.textContent = '✓ Lesson complete';
+      completeBtn.classList.add('done');
+    }
+  }
+  completeBtn.addEventListener('click', () => {
+    Mintly.markLessonComplete('lesson-1');
+    renderComplete();
+  });
+  renderComplete();
+</script>
+</body>
+</html>

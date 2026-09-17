@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — Mintly</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons/financial-literacy.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" width="24" height="24" alt="">
+      Mintly
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="auth-wrap">
+    <div class="auth-card" id="already-signed-in" style="display:none;">
+      <h1>You're already signed in</h1>
+      <p class="sub" id="already-signed-in-sub"></p>
+      <a class="btn" href="lessons/financial-literacy.html" style="display:block; text-align:center; margin-bottom:10px;">Go to lessons</a>
+      <button class="btn btn-secondary" id="already-signed-in-logout" style="width:100%;">Log out</button>
+    </div>
+
+    <div class="auth-card" id="auth-forms">
+      <h1 id="auth-title">Welcome back</h1>
+      <p class="sub" id="auth-sub">Log in to pick up where you left off.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" type="button">Log in</button>
+        <button class="auth-tab" id="tab-signup" type="button">Sign up</button>
+      </div>
+
+      <div class="plan-note" id="plan-note" style="display:none;"></div>
+
+      <form class="auth-form" id="login-form">
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" autocomplete="current-password" required>
+        </div>
+        <div class="auth-error" id="login-error"></div>
+        <button class="btn" type="submit">Log in</button>
+      </form>
+
+      <form class="auth-form hidden" id="signup-form">
+        <div class="field">
+          <label for="signup-name">Your name</label>
+          <input type="text" id="signup-name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" autocomplete="new-password" required minlength="6">
+        </div>
+        <div class="auth-error" id="signup-error"></div>
+        <button class="btn" type="submit">Create account</button>
+      </form>
+
+      <p class="auth-foot">This is a demo login — accounts are stored only in this browser, not on a server.</p>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get("plan");
+  const planNames = { family: "Family", premium: "Premium" };
+
+  const existingUser = Mintly.currentUser();
+  if (existingUser && plan && planNames[plan]) {
+    Mintly.setPlan(plan);
+    window.location.href = "lessons/financial-literacy.html";
+  } else if (existingUser) {
+    document.getElementById("auth-forms").style.display = "none";
+    document.getElementById("already-signed-in").style.display = "block";
+    document.getElementById("already-signed-in-sub").textContent =
+      "You're logged in as " + existingUser.name + ".";
+    document.getElementById("already-signed-in-logout").addEventListener("click", () => {
+      Mintly.logOut();
+      window.location.reload();
+    });
+  }
+
+  const tabLogin = document.getElementById("tab-login");
+  const tabSignup = document.getElementById("tab-signup");
+  const loginForm = document.getElementById("login-form");
+  const signupForm = document.getElementById("signup-form");
+  const title = document.getElementById("auth-title");
+  const sub = document.getElementById("auth-sub");
+  const planNote = document.getElementById("plan-note");
+
+  function showSignup() {
+    tabSignup.classList.add("active");
+    tabLogin.classList.remove("active");
+    signupForm.classList.remove("hidden");
+    loginForm.classList.add("hidden");
+    title.textContent = "Create your account";
+    sub.textContent = "Sign up to save your progress as you go.";
+  }
+
+  function showLogin() {
+    tabLogin.classList.add("active");
+    tabSignup.classList.remove("active");
+    loginForm.classList.remove("hidden");
+    signupForm.classList.add("hidden");
+    title.textContent = "Welcome back";
+    sub.textContent = "Log in to pick up where you left off.";
+  }
+
+  tabLogin.addEventListener("click", showLogin);
+  tabSignup.addEventListener("click", showSignup);
+
+  if (plan && planNames[plan]) {
+    showSignup();
+    planNote.style.display = "block";
+    planNote.textContent = "You selected the " + planNames[plan] + " plan — create an account to continue.";
+  }
+
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const result = Mintly.logIn({
+      email: document.getElementById("login-email").value,
+      password: document.getElementById("login-password").value,
+    });
+    const errorEl = document.getElementById("login-error");
+    if (result.ok) {
+      window.location.href = "lessons/financial-literacy.html";
+    } else {
+      errorEl.textContent = result.error;
+    }
+  });
+
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const result = Mintly.signUp({
+      name: document.getElementById("signup-name").value,
+      email: document.getElementById("signup-email").value,
+      password: document.getElementById("signup-password").value,
+      plan: plan || null,
+    });
+    const errorEl = document.getElementById("signup-error");
+    if (result.ok) {
+      window.location.href = "lessons/financial-literacy.html";
+    } else {
+      errorEl.textContent = result.error;
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Literacy — Mintly</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="nav-group">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="financial-literacy.html">Lessons</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+      </ul>
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" width="24" height="24" alt="">
+      Mintly
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-header">
+    <div class="eyebrow">Course</div>
+    <h1>Financial Literacy</h1>
+    <p>The essentials every teen should know: what money is, how to budget it, and how to make it grow. Start with lesson one.</p>
+  </div>
+
+  <div class="wrap lesson-list">
+    <a class="lesson-row" href="lesson-1.html" id="row-lesson-1">
+      <span class="num">1</span>
+      <span class="title">What is financial literacy?</span>
+      <span class="go" id="go-lesson-1">Start →</span>
+    </a>
+    <div class="lesson-row locked">
+      <span class="num">2</span>
+      <span class="title">Needs vs. wants: building a simple budget</span>
+      <span class="badge-soon">Soon</span>
+    </div>
+    <div class="lesson-row locked">
+      <span class="num">3</span>
+      <span class="title">Saving and how compound interest works</span>
+      <span class="badge-soon">Soon</span>
+    </div>
+    <div class="lesson-row locked">
+      <span class="num">4</span>
+      <span class="title">Banks, debit cards, and credit basics</span>
+      <span class="badge-soon">Soon</span>
+    </div>
+
+    <div class="next-course">
+      <div class="icon">🔒</div>
+      <div>
+        <div class="title">Collectables</div>
+        <div class="desc">Unlocks after you complete every lesson above</div>
+      </div>
+      <div class="progress" id="course-progress">0 of 4 complete</div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Mintly · Financial learning for the next generation</div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+  Mintly.requireSubscription();
+  const done = Mintly.isLessonComplete("lesson-1");
+  if (done) {
+    document.getElementById("go-lesson-1").textContent = "✓ Complete — review";
+  }
+  document.getElementById("course-progress").textContent =
+    Mintly.completedCount() + " of " + Mintly.LESSON_IDS.length + " complete";
+</script>
+</body>
+</html>
