@@ -1,0 +1,2 @@
+# mintly
+mintly
