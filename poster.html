@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster — Mintly</title>
+<meta name="description" content="The Mintly poster: the problem, the five-step experience, how Mintly uses AI, and what's next.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a class="brand" href="index.html">mintly<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="lessons/lesson-1.html">Learn</a></li>
+      <li><a href="lessons/explore.html">Explore</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="parents.html">For Parents</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="poster.html">Poster</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap pricing-hero">
+    <div class="eyebrow-mint">Poster</div>
+    <h1>Mintly on one page</h1>
+    <p>The problem, the five steps, how we use AI, and where Mintly is going.</p>
+    <a class="btn-dark poster-open" href="assets/mintly-poster.html" target="_blank" rel="noopener">Open full size</a>
+  </div>
+
+  <section class="wrap poster-view">
+    <div class="poster-frame" id="poster-frame">
+      <iframe src="assets/mintly-poster.html" title="Mintly poster" width="2304" height="3456"></iframe>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+<script>
+  // The poster is a fixed 2304x3456 page; scale it to the frame's width.
+  const frame = document.getElementById('poster-frame');
+  const fit = () => frame.style.setProperty('--poster-scale', frame.clientWidth / 2304);
+  new ResizeObserver(fit).observe(frame);
+  fit();
+</script>
+</body>
+</html>

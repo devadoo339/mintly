@@ -979,3 +979,27 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 860px) {
   .curious-options { grid-template-columns: 1fr 1fr; }
 }
+
+/* Poster page */
+.poster-open { margin-top: 24px; }
+.poster-view { padding-bottom: 80px; }
+
+.poster-frame {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: #F5F5F4;
+}
+
+.poster-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2304px;
+  height: 3456px;
+  border: 0;
+  transform-origin: 0 0;
+  transform: scale(var(--poster-scale, 0.465));
+}
