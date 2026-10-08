@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore — Mintly</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a class="brand" href="../index.html">mintly<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="lesson-1.html">Learn</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../parents.html">For Parents</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-header">
+    <div class="eyebrow">Explore</div>
+    <h1>What do you want to learn today?</h1>
+    <p>Start with the core course, then branch out into electives — short bonus lessons on the money topics you're actually curious about.</p>
+  </div>
+
+  <div class="wrap explore-section">
+    <form class="curious-form" id="curious-form">
+      <fieldset>
+        <legend>What are you curious about?</legend>
+        <div class="curious-options">
+          <label class="curious-option">
+            <input type="radio" name="topic" value="Sneakers" required>
+            <span class="title">Sneakers</span>
+            <span class="desc">Why some pairs resell for more</span>
+          </label>
+          <label class="curious-option">
+            <input type="radio" name="topic" value="Trading cards">
+            <span class="title">Trading cards</span>
+            <span class="desc">What makes a card valuable</span>
+          </label>
+          <label class="curious-option">
+            <input type="radio" name="topic" value="Crypto">
+            <span class="title">Crypto</span>
+            <span class="desc">What it is, and the risk</span>
+          </label>
+          <label class="curious-option">
+            <input type="radio" name="topic" value="other">
+            <span class="title">Something else</span>
+            <span class="desc">Tell us what</span>
+          </label>
+        </div>
+      </fieldset>
+      <div class="field" id="curious-other-field" hidden>
+        <label for="curious-other">What is it?</label>
+        <input type="text" id="curious-other" maxlength="60">
+      </div>
+      <div class="field">
+        <label for="curious-question">What do you want to find out about it?</label>
+        <input type="text" id="curious-question" maxlength="140" placeholder="e.g. Why did this card lose value?" required>
+      </div>
+      <div class="curious-actions">
+        <button class="btn" type="submit">Explore this one</button>
+        <div class="curious-result" id="curious-result" role="status"></div>
+      </div>
+    </form>
+  </div>
+
+  <div class="wrap explore-section">
+    <div class="explore-label">Course</div>
+    <a class="course-card" href="financial-literacy.html">
+      <div class="icon bg-mint">📘</div>
+      <div>
+        <div class="title">Financial Literacy</div>
+        <div class="desc">Budgeting, saving, and the money basics every teen needs</div>
+      </div>
+      <div class="meta" id="fl-meta">Start here</div>
+    </a>
+  </div>
+
+  <div class="wrap explore-section">
+    <div class="explore-label">Electives · Bonus lessons</div>
+
+    <a class="course-card" href="collectables.html" id="card-collectables">
+      <div class="icon bg-gold">🃏</div>
+      <div>
+        <div class="title">Collectables</div>
+        <div class="desc">How trading cards, sneakers, and other collectibles hold — or lose — their value</div>
+      </div>
+      <div class="meta">🔒 Locked</div>
+    </a>
+
+    <a class="course-card" href="cryptocurrencies.html" id="card-crypto">
+      <div class="icon bg-blue">₿</div>
+      <div>
+        <div class="title">Cryptocurrencies</div>
+        <div class="desc">What crypto actually is, and how to think about the risk</div>
+      </div>
+      <div class="meta">🔒 Locked</div>
+    </a>
+
+    <div class="course-card locked">
+      <div class="icon">✨</div>
+      <div>
+        <div class="title">More electives</div>
+        <div class="desc">New bonus lessons are on the way</div>
+      </div>
+      <div class="meta"><span class="badge-soon">Soon</span></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Mintly · Financial learning for the next generation</div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+  const done = Mintly.completedCount();
+  const total = Mintly.LESSON_IDS.length;
+  document.getElementById('fl-meta').textContent =
+    done === 0 ? 'Start here' : done === total ? '✓ Complete — review' : done + ' of ' + total + ' complete';
+
+  const curiousForm = document.getElementById('curious-form');
+  const otherField = document.getElementById('curious-other-field');
+  const otherInput = document.getElementById('curious-other');
+  const questionInput = document.getElementById('curious-question');
+  const curiousResult = document.getElementById('curious-result');
+  const ELECTIVE_FOR = { 'Sneakers': 'Collectables', 'Trading cards': 'Collectables', 'Crypto': 'Cryptocurrencies' };
+
+  function syncOtherField() {
+    const isOther = curiousForm.elements.topic.value === 'other';
+    otherField.hidden = !isOther;
+    otherInput.required = isOther;
+  }
+
+  function showInterest(interest) {
+    const elective = ELECTIVE_FOR[interest.topic];
+    curiousResult.textContent = 'Saved. You\'re researching ' + interest.topic + '.' +
+      (elective ? ' The ' + elective + ' elective below covers it.' : '');
+  }
+
+  curiousForm.addEventListener('change', syncOtherField);
+  curiousForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const picked = curiousForm.elements.topic.value;
+    const topic = picked === 'other' ? otherInput.value.trim() : picked;
+    const question = questionInput.value.trim();
+    if (!topic || !question) return;
+    const interest = { topic, question, custom: picked === 'other' };
+    Mintly.saveInterest(interest);
+    showInterest(interest);
+  });
+
+  const savedInterest = Mintly.getInterest();
+  if (savedInterest) {
+    curiousForm.elements.topic.value = savedInterest.custom ? 'other' : savedInterest.topic;
+    if (savedInterest.custom) otherInput.value = savedInterest.topic;
+    questionInput.value = savedInterest.question;
+    syncOtherField();
+    showInterest(savedInterest);
+  }
+
+  if (Mintly.isCourseComplete()) {
+    ['card-collectables', 'card-crypto'].forEach((id) => {
+      document.getElementById(id).querySelector('.meta').textContent = 'Unlocked →';
+    });
+  }
+</script>
+</body>
+</html>

@@ -2,6 +2,7 @@ const Mintly = (() => {
   const PROGRESS_PREFIX = "mintly:completed:";
   const USERS_KEY = "mintly:users";
   const SESSION_KEY = "mintly:session";
+  const INTEREST_PREFIX = "mintly:interest:";
   const LESSON_IDS = ["lesson-1", "lesson-2", "lesson-3", "lesson-4"];
 
   function readJSON(key, fallback) {
@@ -141,6 +142,16 @@ const Mintly = (() => {
     return completedCount() === LESSON_IDS.length;
   }
 
+  // --- Research interest (what the user chose to learn about on Explore) ---
+
+  function saveInterest(interest) {
+    writeJSON(INTEREST_PREFIX + progressScope(), interest);
+  }
+
+  function getInterest() {
+    return readJSON(INTEREST_PREFIX + progressScope(), null);
+  }
+
   function requireSubscription() {
     if (!hasActivePlan()) {
       window.location.href = rootPath("pricing.html");
@@ -153,6 +164,8 @@ const Mintly = (() => {
     markLessonComplete,
     completedCount,
     isCourseComplete,
+    saveInterest,
+    getInterest,
     currentUser,
     signUp,
     logIn,
