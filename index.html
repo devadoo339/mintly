@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mintly — Financial literacy for teens</title>
-<meta name="description" content="Mintly teaches teens ages 13-18 how money, investing, and financial literacy actually work.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mintly — Learn how to make financial decisions</title>
+<meta name="description" content="Mintly turns financial learning into decisions teens can practice: research, ask Leaf, think, simulate and get scored.">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="demo.css">
+<script src="theme.js"></script>
 </head>
 <body>
+<div class="np"><i id="np"></i></div>
 
 <header class="site-header">
   <div class="wrap navbar">
@@ -16,10 +21,10 @@
     <ul class="nav-links">
       <li><a href="lessons/lesson-1.html">Learn</a></li>
       <li><a href="lessons/explore.html">Explore</a></li>
+      <li><a href="index.html#simulate">Simulate</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="parents.html">For Parents</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="poster.html">Poster</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-auth" id="nav-auth"></div>
@@ -27,64 +32,33 @@
   </div>
 </header>
 
-<main>
-  <section class="hero-new">
-    <div class="wrap">
-      <div class="hero-copy">
-        <div class="eyebrow-mint">Money skills for real life</div>
-        <h1>Grow smart with <span class="accent">money.</span></h1>
-        <p class="lead">Mintly helps kids learn financial literacy through short lessons, safe investing simulations, goals, and hands-on challenges built for curious young minds.</p>
-        <div class="hero-actions">
-          <a class="btn" href="pricing.html">Start learning</a>
-          <a class="btn btn-secondary" href="about.html#how-it-works">See how it works</a>
-        </div>
-        <p class="hero-note">Designed for kids. Built with parents in mind. No real-money investing required.</p>
-      </div>
+<main id="site"><nav class="chap" id="chap"></nav>
+<div class="wrap hero" id="top"><div><h1>Everyone's talking about this stock. Would you buy it?</h1>
+<p class="sub">Mintly turns financial learning into decisions you can actually practice.</p>
+<button class="btn" onclick="start()">Try the Demo</button> <button class="btn ghost" onclick="go('journey')">How Mintly Works</button>
+<div class="chain"><b>Learn</b>→<b>Research</b>→<b>Ask</b>→<b>Think</b>→<b>Simulate</b>→<b>Score</b></div></div>
+<div class="card hv"><div class="sc"><b>NVDA</b><span class="up">+42%</span></div><div class="price">$182.40</div><div id="hv"></div><div class="rng" id="rg"><button class="" onclick="hr(this,'1D')">1D</button><button class="" onclick="hr(this,'1W')">1W</button><button class="on" onclick="hr(this,'1M')">1M</button><button class="" onclick="hr(this,'1Y')">1Y</button></div><div class="chips" style="margin:18px 0 0"><button class="chip" data-m="What would need to be true for this to keep growing?" onclick="pk(this)">Buy</button><button class="chip" data-m="What information would change your mind?" onclick="pk(this)">Wait</button><button class="chip" data-m="What's the strongest reason not to?" onclick="pk(this)">Pass</button></div><p class="fb">Tap one and Leaf will push your thinking.</p><p class="mute" style="font-size:12px">Simulation. No real money. Mock data.</p></div></div>
 
-      <div class="hero-visual">
-        <div class="hero-blob"></div>
-        <div class="phone">
-          <div class="phone-top">
-            <span class="phone-brand">mintly<span class="dot">.</span></span>
-            <span class="phone-level">LEVEL 4</span>
-          </div>
-          <div class="phone-greet">
-            <h3>Hey, Maya 👋</h3>
-            <p>Ready for today's 5-minute money lesson?</p>
-          </div>
-          <div class="phone-lesson-card">
-            <div class="q">What is compound growth?</div>
-            <div class="progress-track"><div class="progress-fill" style="width:68%"></div></div>
-            <div class="pct">Lesson progress · 68%</div>
-          </div>
-          <div class="phone-grid">
-            <div class="phone-chip">
-              <div class="chip-icon bg-mint"></div>
-              <div class="chip-title">Practice Portfolio</div>
-              <div class="chip-desc">Build without real money</div>
-            </div>
-            <div class="phone-chip">
-              <div class="chip-icon bg-gold"></div>
-              <div class="chip-title">Money Missions</div>
-              <div class="chip-desc">Learn through challenges</div>
-            </div>
-            <div class="phone-chip">
-              <div class="chip-icon bg-blue"></div>
-              <div class="chip-title">Save for a Goal</div>
-              <div class="chip-desc">Plan, track, celebrate</div>
-            </div>
-            <div class="phone-chip">
-              <div class="chip-icon bg-purple"></div>
-              <div class="chip-title">Quick Quiz</div>
-              <div class="chip-desc">Test what you learned</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="prob" class="alt" style="padding:0"><div class="pw" id="pa" style="height:340vh"><div class="pp " style=""><div class="wrap" style="width:100%"><div id="ptx"></div><p id="tpn" class="mute" style="min-height:28px;font-size:17px">Tap a topic to see what young people hear about it.</p></div></div></div></section>
+
+<section id="idea" style="padding:0"><div id="nz" class="nz-wrap"><div class="nz-pin"><canvas id="cv"></canvas><div class="mq" id="mq"></div><div id="sc2"></div><div class="rail" id="rail"></div></div></div></section>
+
+<section id="journey" style="padding-bottom:0"><div class="wrap"><h2>From curiosity to a decision in six steps.</h2><p class="mute" style="margin-top:14px;max-width:560px">Scroll through the loop, and tap anything in the panel to try it.</p></div>
+<div id="sc" class="sc-wrap"><div class="pin"><div class="wrap sg"><ol class="sl" id="sl"></ol><div class="panel" id="pn"></div></div><div class="sbar"><i id="sb"></i></div></div></div>
+<div style="height:80px"></div></section>
+
+<section id="leaf" class="alt" style="padding:0"><div class="pw" id="pb" style="height:360vh"><div class="pp " style=""><div class="wrap" style="width:100%"><h2>Meet Leaf.</h2><p class="mute" style="margin:12px 0 18px;max-width:600px">Leaf is Mintly's research companion. It reads with you, shows its evidence and never says buy or sell.</p><div class="lt" id="lt" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px"><button onclick="leafTab(0)"><b>Summarize</b><span>“Summarize this article.”</span></button><button onclick="leafTab(1)"><b>Challenge</b><span>“What's the strongest argument against it?”</span></button><button onclick="leafTab(2)"><b>Compare</b><span>“Are these articles saying different things?”</span></button></div><div class="lf2"><div class="card art2" id="ar"><span class="tag Bullish">Bullish</span> <span class="mute" style="font-size:13px">MarketLine</span><p><span data-h="0,2">Big cloud companies are spending record amounts on data centers, and NVIDIA supplies most of the chips.</span> Analysts expect strong sales to continue.</p><span class="tag Bearish">Bearish</span> <span class="mute" style="font-size:13px">The Daily Ledger</span><p>Critics say <span data-h="1,2">customers are spending far more than AI products currently earn.</span> If it slows, growth could drop fast.</p></div><div class="card lp" id="lp"></div></div></div></div></div></section>
+
+<section id="parents" style="padding:0"><div class="pw" id="pc" style="height:420vh"><div class="pp " style=""><div class="wrap pcg" style="width:100%"><div><h2>Parents see the journey, not just the grade.</h2><p class="mute" style="margin-top:14px;max-width:520px">Parents get their own login and a clear view of how their child thinks about money. It's built for understanding, not surveillance. Here's one teen's first two weeks.</p><ol class="ev" id="ev"><li onclick="jumpTo('pc',0.03)"><b>Day 1</b>First lesson: risk and volatility</li><li onclick="jumpTo('pc',0.28)"><b>Day 3</b>First simulation: AI chips. Read all 3 sources.</li><li onclick="jumpTo('pc',0.53)"><b>Day 7</b>Second simulation. Evidence use improves.</li><li onclick="jumpTo('pc',0.78)"><b>Day 14</b>Names the downside before deciding.</li></ol></div><div class="card dash"><div class="chips"><span class="chip">Risk & volatility</span><span class="chip">AI chips</span><span class="chip">Valuation</span><span class="chip">Reading earnings</span></div><div class="sc" style="margin-top:22px;align-items:baseline"><span class="mute">Reasoning score</span><b id="dsc" style="font:800 44px var(--fh)">0</b></div><svg viewBox="0 0 300 110" style="width:100%;height:auto"><path id="dln" d="M20,86 L150,58 L280,22" pathLength="1" fill="none" stroke="var(--ink)" stroke-width="3" stroke-dasharray="1" stroke-dashoffset="1" stroke-linecap="round"/><circle class="dc" cx="20" cy="86" r="6" fill="var(--ink)" opacity="0"/><circle class="dc" cx="150" cy="58" r="6" fill="var(--ink)" opacity="0"/><circle class="dc" cx="280" cy="22" r="6" fill="var(--ink)" opacity="0"/></svg><div class="sugg" id="dpm" style="opacity:0;transform:translateY(12px);transition:all .5s;margin:12px 0 0"><p class="mute" style="font-size:13px">Where to talk</p><p>Ask what would make them change their mind about this stock.</p></div></div></div></div></div><div class="wrap" style="padding-bottom:80px"><p class="mute" style="font-size:14px">This is a preview. The parent portal isn't part of this demo.</p></div></section>
+
+<section id="vision" style="padding:0;background:#0A0A0B;color:#fff"><div class="pw" id="pd" style="height:420vh"><div class="pp " style=""><div class="wrap vg" style="width:100%"><div id="vtx" class="vx"></div><div><div class="orb" id="orb"><div class="rg" style="width:34%;height:34%"><span>Educator</span></div><div class="rg" style="width:66%;height:66%"><span>Guide</span></div><div class="rg" style="width:96%;height:96%"><span>Platform</span></div><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;font-size:13px;color:rgba(255,255,255,.7)">A young<br>person</div></div><p id="ovd" style="text-align:center;min-height:26px;margin-top:10px;color:rgba(255,255,255,.75);font-size:15px"></p></div></div></div></div><div class="wrap vx" style="padding:0 24px 80px"><p style="font:700 24px/1.3 var(--fh);letter-spacing:-.02em;max-width:700px">Mintly's long-term ambition is to become the place where young people learn how to do things with money, and are supported in putting that knowledge into practice.</p><p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)">Real financial activity would be introduced only through appropriately structured partnerships, safeguards and parental involvement.</p><button class="btn" style="margin-top:28px;background:#fff;color:#0A0A0B" onclick="start()">Try the Demo</button></div></section>
+<div class="wrap foot">Mintly doesn't teach young people what to think about money. It teaches them how to think when making financial decisions.<p class="disc">Disclaimer: Mintly is not a brokerage and does not trade in the stock market. Everything in this demo is simulated, uses mock data and is not financial advice.</p></div>
 </main>
 
+<div id="demo"><div class="wrap"><div class="top"><button class="btn ghost sm" id="bk" style="display:none" onclick="S.step=Math.max(0,S.step-1);draw()">Back</button><span class="sim">SIMULATION — No real money is involved.</span><div class="hw"><button class="hud" id="hud" onclick="$('qp').classList.toggle('open')" aria-label="Quests and badges"></button><div class="qp" id="qp"></div></div><div class="prog" id="prog"></div></div><div id="app" class="stage"></div><p class="disc" style="padding-bottom:40px">Mintly is not a brokerage and does not trade in the stock market. This is a simulation.</p></div></div>
+
+<div class="md" id="md" onclick="if(event.target==this)this.classList.remove('open')"><div class="card mdc" id="mdc"></div></div><div id="toasts" aria-live="polite"></div>
 <script src="script.js"></script>
+<script src="demo.js"></script>
 </body>
 </html>
