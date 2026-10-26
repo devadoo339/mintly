@@ -126,8 +126,7 @@ const Mintly = (() => {
       });
     } else {
       el.innerHTML =
-        '<a class="nav-account-link" href="' + signinHref + '">Log in</a>' +
-        '<a class="btn-dark" href="' + signinHref + '">Join the waitlist</a>';
+        '<a class="btn-dark" href="' + signinHref + '">Login and sign up</a>';
     }
   }
 
