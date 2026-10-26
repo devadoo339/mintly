@@ -839,8 +839,14 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
   margin: 0 auto;
 }
 
+.plans.plans-four { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1100px) {
+  .plans.plans-four { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; }
+}
+
 @media (max-width: 900px) {
-  .plans, .plans.plans-two { grid-template-columns: 1fr; }
+  .plans, .plans.plans-two, .plans.plans-four { grid-template-columns: 1fr; }
 }
 
 .plan-card {
@@ -1348,3 +1354,5 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
   .navbar .nav-right { gap: 10px; }
   span.nav-account-link { display: none; }
 }
+
+.plans.plans-four .plan-card .btn { white-space: nowrap; padding-left: 16px; padding-right: 16px; }

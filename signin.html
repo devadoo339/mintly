@@ -89,7 +89,7 @@
 <script>
   const params = new URLSearchParams(window.location.search);
   const plan = params.get("plan");
-  const planNames = { family: "Family", premium: "Premium" };
+  const planNames = { family: "Starter", premium: "Plus", pro: "Family Pro", school: "School" };
 
   const existingUser = Mintly.currentUser();
   if (existingUser && plan && planNames[plan]) {
