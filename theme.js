@@ -59,6 +59,10 @@
     };
     addEventListener("keydown", e => { if (e.key === "Escape") cp.classList.remove("open"); });
     matchMedia("(prefers-color-scheme: dark)").addEventListener("change", apply);
+    // the demo shares this setting: pick up a change made there in another tab, or before coming back with Back/Forward
+    const sync = () => { const t = read(KEY_THEME, null); if (t === "light" || t === "dark") root.dataset.theme = t; else delete root.dataset.theme; apply(); };
+    addEventListener("storage", e => { if (e.key === KEY_THEME || e.key === null) sync(); });
+    addEventListener("pageshow", e => { if (e.persisted) sync(); });
     apply();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", build); else build();
