@@ -235,23 +235,6 @@
 
 <script src="../script.js"></script>
 <script>
-  document.querySelectorAll('[data-quiz]').forEach((group) => {
-    const feedback = group.nextElementSibling;
-    group.querySelectorAll('.quiz-option').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (group.dataset.answered) return;
-        group.dataset.answered = 'true';
-        const isCorrect = btn.dataset.correct === 'true';
-        btn.classList.add(isCorrect ? 'correct' : 'incorrect');
-        if (!isCorrect) {
-          group.querySelector('[data-correct="true"]').classList.add('correct');
-        }
-        feedback.textContent = isCorrect ? 'Correct! Nice work.' : 'Not quite — the correct answer is highlighted.';
-        feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
-      });
-    });
-  });
-
   // --- Typed answers: saved in this browser so they survive a reload ---
   const ANSWER_KEY = 'mintly:lesson-4:answers';
   function loadAnswers() {
@@ -408,18 +391,7 @@
   [bankAmount, bankYears, bankRate].forEach((el) => el.addEventListener('input', updateBank));
   updateBank();
 
-  const completeBtn = document.getElementById('complete-btn');
-  function renderComplete() {
-    if (Mintly.isLessonComplete('lesson-4')) {
-      completeBtn.textContent = '✓ Lesson complete';
-      completeBtn.classList.add('done');
-    }
-  }
-  completeBtn.addEventListener('click', () => {
-    Mintly.markLessonComplete('lesson-4');
-    renderComplete();
-  });
-  renderComplete();
+  Mintly.initLessonQuiz('lesson-4');
 </script>
 </body>
 </html>

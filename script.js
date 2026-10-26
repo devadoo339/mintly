@@ -218,6 +218,85 @@ const Mintly = (() => {
     }
   }
 
+  // --- Confetti: a short celebration burst, used when a lesson is finished ---
+
+  function confetti(n) {
+    n = n || 80;
+    const colors = ["#23664A", "#2F7D58", "#A8DDC0", "#F6B8A8", "#151515"];
+    for (let i = 0; i < n; i++) {
+      const piece = document.createElement("i");
+      piece.className = "confetti-piece";
+      piece.style.left = Math.random() * 100 + "vw";
+      piece.style.background = colors[i % colors.length];
+      piece.style.animationDuration = (1.6 + Math.random() * 1.4) + "s";
+      piece.style.animationDelay = Math.random() * 0.4 + "s";
+      document.body.appendChild(piece);
+      setTimeout(() => piece.remove(), 3400);
+    }
+  }
+
+  // --- Lesson quizzes: every [data-quiz] group is a required question. Wires the
+  // click handling, and makes "Mark lesson complete" check that every question on
+  // the page has been answered before the lesson can be completed. If any are
+  // missing, it scrolls to the first one and marks every unanswered question with
+  // "This is a required question". Shared by every lesson page.
+
+  function initLessonQuiz(lessonId) {
+    const groups = Array.from(document.querySelectorAll("[data-quiz]"));
+
+    groups.forEach((group) => {
+      const feedback = group.nextElementSibling;
+      group.querySelectorAll(".quiz-option").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (group.dataset.answered) return;
+          group.dataset.answered = "true";
+          const isCorrect = btn.dataset.correct === "true";
+          btn.classList.add(isCorrect ? "correct" : "incorrect");
+          if (!isCorrect) {
+            group.querySelector('[data-correct="true"]').classList.add("correct");
+          }
+          feedback.className = "quiz-feedback " + (isCorrect ? "correct" : "incorrect");
+          feedback.textContent = isCorrect ? "Correct! Nice work." : "Not quite — the correct answer is highlighted.";
+        });
+      });
+    });
+
+    const completeBtn = document.getElementById("complete-btn");
+    if (!completeBtn) return;
+
+    function renderComplete() {
+      if (isLessonComplete(lessonId)) {
+        completeBtn.textContent = "✓ Lesson complete";
+        completeBtn.classList.add("done");
+        completeBtn.disabled = true;
+      }
+    }
+
+    completeBtn.addEventListener("click", () => {
+      const unanswered = groups.filter((group) => !group.dataset.answered);
+      if (unanswered.length) {
+        unanswered.forEach((group) => {
+          const feedback = group.nextElementSibling;
+          feedback.className = "quiz-feedback required";
+          feedback.textContent = "This is a required question";
+        });
+        const first = unanswered[0];
+        const target = first.previousElementSibling && first.previousElementSibling.classList.contains("quiz-question")
+          ? first.previousElementSibling
+          : first;
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        const firstOption = first.querySelector(".quiz-option");
+        if (firstOption) firstOption.focus();
+        return;
+      }
+      markLessonComplete(lessonId);
+      renderComplete();
+      confetti();
+    });
+
+    renderComplete();
+  }
+
   return {
     LESSONS,
     LESSON_IDS,
@@ -238,6 +317,8 @@ const Mintly = (() => {
     requireSubscription,
     renderNavAuth,
     setupMobileNav,
+    confetti,
+    initLessonQuiz,
   };
 })();
 
