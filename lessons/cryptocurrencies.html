@@ -34,7 +34,8 @@
     <div class="icon-big">🔒</div>
     <h2>Cryptocurrencies is locked</h2>
     <p>This course unlocks after Financial Literacy and Collectables. Start with Financial Literacy first.</p>
-    <a class="btn" href="financial-literacy.html">Go to Financial Literacy</a>
+    <p id="lock-progress"></p>
+    <a class="btn" href="financial-literacy.html" id="lock-cta">Go to Financial Literacy</a>
   </div>
 </main>
 
@@ -45,6 +46,19 @@
 <script src="../script.js"></script>
 <script>
   Mintly.requireSubscription();
+  const done = Mintly.completedCount();
+  const total = Mintly.LESSON_IDS.length;
+  if (done < total) {
+    const next = Mintly.nextLesson();
+    document.getElementById('lock-progress').textContent =
+      "You've completed " + done + " of " + total + " Financial Literacy lessons so far.";
+    const cta = document.getElementById('lock-cta');
+    cta.href = next.id + '.html';
+    cta.textContent = 'Continue with lesson ' + (Mintly.LESSON_IDS.indexOf(next.id) + 1) + ': ' + next.title;
+  } else {
+    document.getElementById('lock-progress').textContent =
+      "You've finished Financial Literacy. Cryptocurrencies opens once the Collectables lessons are out.";
+  }
 </script>
 </body>
 </html>

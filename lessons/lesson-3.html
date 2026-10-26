@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saving for something you want — Mintly</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script src="../theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a class="brand" href="../index.html">mintly<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="lesson-1.html">Learn</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../parents.html">For Parents</a></li>
+      <li><a href="../mintly.demo.html?from=site">Demo</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article class="lesson-body">
+    <div class="eyebrow">Financial Literacy · Lesson 3</div>
+    <h1>Saving for something you want</h1>
+    <p class="lesson-meta">About 12 minutes · 5 activities · Your typed answers are saved in this browser</p>
+
+    <p>Maybe it's a pair of headphones, a new game console, a concert ticket or your first car. Wanting something isn't the hard part. The hard part is getting from "I want that" to actually owning it without borrowing money or giving up halfway.</p>
+
+    <p>This lesson shows you how to turn a want into a <strong>savings goal</strong>, work out how long it will take, make saving happen automatically, and protect your plan from surprises and impulse buys. You met "pay yourself first" and emergency funds in Lessons 1 and 2. Now you'll put them to work.</p>
+
+    <div class="activity" id="warmup">
+      <div class="activity-label">Warm-up · Typing</div>
+      <h3>What would you save for?</h3>
+      <p>Write one thing you'd like to save for, and roughly what it costs. Keep it real: something you'd actually buy.</p>
+      <label class="sr-only" for="warmup-text">Something you'd like to save for</label>
+      <textarea class="write-box" id="warmup-text" data-save="warmup" rows="3" placeholder="I'd like to save for... It costs about..."></textarea>
+      <div class="activity-actions">
+        <button class="btn" type="button" data-lock="warmup-text">Save my answer</button>
+        <span class="activity-status" id="warmup-status" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <h2>From "I want it" to a goal</h2>
+    <p>"I want to save money" is a wish. A goal is specific enough that you can tell whether you're on track. Good savings goals answer three questions:</p>
+    <ul>
+      <li><strong>What exactly?</strong> Not "headphones," but the exact pair you want.</li>
+      <li><strong>How much?</strong> The real price, including tax or shipping.</li>
+      <li><strong>By when?</strong> A date. Without a deadline, "someday" never comes.</li>
+    </ul>
+
+    <div class="definition-card">
+      <div class="definition-term">Savings goal <span>(noun)</span></div>
+      <p>A specific amount of money you plan to set aside <strong>for a specific thing</strong> by a <strong>specific date</strong>.</p>
+    </div>
+
+    <h2>Do the math</h2>
+    <p>Once you know the price and how much you can put away, the timeline is simple division: <strong>price ÷ amount saved each week = number of weeks</strong>. If the headphones cost $180 and you save $15 a week, that's 12 weeks, about three months.</p>
+    <p>You can shorten the timeline in only two ways: save more each week, or find a lower price. Both are worth checking.</p>
+
+    <div class="activity">
+      <div class="activity-label">Activity · Calculator</div>
+      <h3>How long until you can buy it?</h3>
+      <p>Type the price of your goal and how much you can save each week.</p>
+      <div class="calc-grid">
+        <label class="split-field">Price of the goal<span class="money-input">$<input id="goal-price" type="number" min="1" max="100000" step="1" inputmode="numeric" value="180"></span></label>
+        <label class="split-field">Saved each week<span class="money-input">$<input id="goal-weekly" type="number" min="1" max="5000" step="1" inputmode="numeric" value="15"></span></label>
+        <label class="split-field">Already saved<span class="money-input">$<input id="goal-start" type="number" min="0" max="100000" step="1" inputmode="numeric" value="0"></span></label>
+      </div>
+      <div class="calc-results">
+        <div><span>Weeks to go</span><b id="goal-weeks">0</b></div>
+        <div class="grow"><span>Roughly</span><b id="goal-when">0 months</b></div>
+      </div>
+      <p class="calc-note" id="goal-note"></p>
+    </div>
+
+    <div class="callout">
+      <strong>Leaf asks</strong>
+      If you saved $5 more each week, how many weeks sooner would you reach your goal? And what would you give up to find that $5? There's no right answer. The point is to notice the trade-off.
+    </div>
+
+    <h2>Make saving automatic</h2>
+    <p>People rarely fail at saving because they can't do the math. They fail because the money gets spent first. A few habits fix that:</p>
+    <ul>
+      <li><strong>Pay yourself first.</strong> The moment money comes in, move your weekly amount to savings. Spend from what's left, not the other way round.</li>
+      <li><strong>Keep it separate.</strong> Money in your wallet or main account is easy to spend. A separate savings account (or even a jar you don't open) adds a pause before you spend it.</li>
+      <li><strong>Track your progress.</strong> Write down the total each week. Watching the number grow is motivating, and you'll spot a missed week right away.</li>
+      <li><strong>Name it.</strong> Calling the account "Headphones" instead of "Savings" makes it harder to raid for something else.</li>
+    </ul>
+
+    <h2>Two kinds of saving</h2>
+    <p>Not all savings are for things you want. There are two jobs savings can do:</p>
+    <ul>
+      <li><strong>Goal savings</strong> are for planned purchases: the headphones, a trip, a car. You know what and when.</li>
+      <li><strong>An emergency fund</strong> is for things you <em>didn't</em> plan: a cracked phone screen, a lost bus pass, a surprise bill. You don't know what or when, only that something will happen eventually.</li>
+    </ul>
+    <p>Keep them apart. If a surprise wipes out your goal savings, you're back to week one. Even a small emergency fund, say $50 to $100 for a teen, means a surprise doesn't derail your goal. Adults usually aim for enough to cover three to six months of essential expenses.</p>
+
+    <h2>The goal's biggest enemy: impulse buys</h2>
+    <p>An <strong>impulse buy</strong> is something you buy on the spot without planning to. A $6 snack here and a $12 in-game item there feel small, but every one pushes your goal further away. That's <strong>opportunity cost</strong> again: the real price of the impulse buy is the days it adds to your goal.</p>
+    <p>A simple defense is the <strong>24-hour rule</strong>: when you feel the urge to buy something you hadn't planned, wait a day. For bigger purchases, wait longer, like a week or even 30 days. If you still want it after the wait, fine. Often you won't.</p>
+
+    <div class="callout">
+      <strong>Quick example</strong>
+      Sam is saving $15 a week for $180 headphones, so 12 weeks. In week 3 Sam spends that week's $15 on a game skin instead. Now it's 13 weeks. The skin didn't just cost $15; it cost a week of waiting for something Sam wanted more.
+    </div>
+  </article>
+
+  <section class="quiz">
+    <div class="quiz-box">
+      <h2>Try it: wait 24 hours, or go ahead?</h2>
+
+      <div class="quiz-question">You're saving for a bike. A store you're walking past has a hoodie on sale, and you hadn't planned to buy one.</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="true">Wait 24 hours</button>
+        <button class="quiz-option" data-correct="false">Buy it now, it's on sale</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">You planned last month to buy a new pair of school shoes this week, and the money is in your budget.</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Wait 24 hours</button>
+        <button class="quiz-option" data-correct="true">Go ahead, it's planned</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">An ad says a limited skin disappears in 10 minutes, and you've never wanted it before today.</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="true">Wait. "Only 10 minutes left" is designed to rush you</button>
+        <button class="quiz-option" data-correct="false">Buy it before it's gone</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+  </section>
+
+  <article class="lesson-body lesson-cont">
+    <div class="activity">
+      <div class="activity-label">Activity · Typing</div>
+      <h3>Fill in the missing word</h3>
+      <p>Type the word that completes each sentence, then press Enter or Check.</p>
+      <div class="blank-list">
+        <div class="blank-row" data-answers="first">
+          <label for="b1">Moving money to savings as soon as you get it is called paying yourself <input id="b1" class="blank-input" autocomplete="off">.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="emergency">
+          <label for="b2">Money kept aside for unplanned surprises is an <input id="b2" class="blank-input" autocomplete="off"> fund.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="impulse">
+          <label for="b3">Something you buy on the spot without planning to is an <input id="b3" class="blank-input" autocomplete="off"> buy.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="hour">
+          <label for="b4">Waiting a day before an unplanned purchase is the 24- <input id="b4" class="blank-input" autocomplete="off"> rule.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity" id="final">
+      <div class="activity-label">Wrap-up · Typing</div>
+      <h3>Make your plan</h3>
+      <p>Here's what you wanted to save for at the start:</p>
+      <blockquote class="your-answer" id="warmup-echo">You haven't written a warm-up answer yet. Scroll up to try it.</blockquote>
+      <p>Now turn it into a plan: what exactly, how much, by when, how much you'll save each week, and where you'll keep the money.</p>
+      <label class="sr-only" for="final-text">Your savings plan</label>
+      <textarea class="write-box" id="final-text" data-save="final" rows="4" placeholder="I'm saving $... for ... by ... I'll put away $... each week in ..."></textarea>
+      <div class="activity-actions">
+        <button class="btn" type="button" data-reveal="final-sample" data-needs="final-text">Compare with a sample plan</button>
+        <span class="activity-status" id="final-text-status" aria-live="polite"></span>
+      </div>
+      <div class="sample-answer" id="final-sample" hidden>
+        <strong>One strong plan:</strong> "I'm saving $180 for the headphones I picked, by the end of March. I'll move $15 into a separate savings account every Friday when I get paid for babysitting, which gets me there in 12 weeks. If I want something I hadn't planned, I'll wait 24 hours first."
+        <span class="sample-tip">Does yours have a specific item, a price, a date, a weekly amount and a separate place for the money?</span>
+      </div>
+    </div>
+
+    <h2>Key words from this lesson</h2>
+    <dl class="vocab-list">
+      <div><dt>Savings goal</dt><dd>A specific amount, for a specific thing, by a specific date.</dd></div>
+      <div><dt>Pay yourself first</dt><dd>Move money to savings before spending on wants.</dd></div>
+      <div><dt>Emergency fund</dt><dd>Savings set aside for unplanned surprises.</dd></div>
+      <div><dt>Impulse buy</dt><dd>A purchase made on the spot, without planning.</dd></div>
+      <div><dt>24-hour rule</dt><dd>Waiting a day before an unplanned purchase.</dd></div>
+      <div><dt>Opportunity cost</dt><dd>What you give up when you choose something.</dd></div>
+    </dl>
+
+    <h2>What's next</h2>
+    <p>Your savings need somewhere safe to live, ideally somewhere that pays you to keep them there. Next, you'll learn how banks work. <a href="lesson-4.html"><strong>Go to Lesson 4: How banks work →</strong></a></p>
+  </article>
+
+  <section class="quiz">
+    <div class="quiz-box">
+      <h2>Quick check</h2>
+
+      <div class="quiz-question">1. Which of these is a savings goal, not just a wish?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">"I want to save more money"</button>
+        <button class="quiz-option" data-correct="true">"$180 for these headphones by March 31"</button>
+        <button class="quiz-option" data-correct="false">"I'll save whatever is left at the end of the month"</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">2. A game costs $60 and you save $5 a week. How many weeks until you can buy it?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">6 weeks</button>
+        <button class="quiz-option" data-correct="true">12 weeks</button>
+        <button class="quiz-option" data-correct="false">30 weeks</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">3. Why keep an emergency fund separate from your goal savings?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="true">So a surprise cost doesn't wipe out your goal</button>
+        <button class="quiz-option" data-correct="false">Because banks require it</button>
+        <button class="quiz-option" data-correct="false">So you can spend the emergency fund on wants</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">4. What does "pay yourself first" mean?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Buy something fun as soon as you get paid</button>
+        <button class="quiz-option" data-correct="true">Move money into savings before spending on wants</button>
+        <button class="quiz-option" data-correct="false">Pay your bills last</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+  </section>
+  <div class="lesson-nav">
+    <a class="btn btn-secondary" href="financial-literacy.html">← All lessons</a>
+    <button class="btn" id="complete-btn">Mark lesson complete ✓</button>
+  </div>
+  <nav class="lesson-pager" aria-label="Lesson navigation">
+    <a class="prev" href="lesson-2.html">← Lesson 2: Needs vs. wants</a>
+    <a class="next" href="lesson-4.html">Lesson 4: How banks work →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Mintly · Financial learning for the next generation</div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+  document.querySelectorAll('[data-quiz]').forEach((group) => {
+    const feedback = group.nextElementSibling;
+    group.querySelectorAll('.quiz-option').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (group.dataset.answered) return;
+        group.dataset.answered = 'true';
+        const isCorrect = btn.dataset.correct === 'true';
+        btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+        if (!isCorrect) {
+          group.querySelector('[data-correct="true"]').classList.add('correct');
+        }
+        feedback.textContent = isCorrect ? 'Correct! Nice work.' : 'Not quite — the correct answer is highlighted.';
+        feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
+      });
+    });
+  });
+
+  // --- Typed answers: saved in this browser so they survive a reload ---
+  const ANSWER_KEY = 'mintly:lesson-3:answers';
+  function loadAnswers() {
+    try { return JSON.parse(localStorage.getItem(ANSWER_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveAnswer(key, value) {
+    const answers = loadAnswers();
+    answers[key] = value;
+    try { localStorage.setItem(ANSWER_KEY, JSON.stringify(answers)); } catch (e) {}
+  }
+
+  const warmupEcho = document.getElementById('warmup-echo');
+  function renderWarmupEcho() {
+    const text = (loadAnswers().warmup || '').trim();
+    if (warmupEcho && text) {
+      warmupEcho.textContent = text;
+      warmupEcho.classList.add('filled');
+    }
+  }
+
+  const saved = loadAnswers();
+  document.querySelectorAll('[data-save]').forEach((box) => {
+    const key = box.dataset.save;
+    if (saved[key]) box.value = saved[key];
+    box.addEventListener('input', () => {
+      saveAnswer(key, box.value);
+      if (key === 'warmup') renderWarmupEcho();
+    });
+  });
+  renderWarmupEcho();
+
+  document.querySelectorAll('[data-lock]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = document.getElementById(btn.dataset.lock);
+      const status = document.getElementById('warmup-status');
+      if (box.value.trim().length < 10) {
+        status.textContent = 'Write a little more first, even one full sentence.';
+        return;
+      }
+      saveAnswer(box.dataset.save, box.value);
+      renderWarmupEcho();
+      status.textContent = 'Saved. You\'ll see this again at the end of the lesson.';
+    });
+  });
+
+  // "Compare with a sample answer": only after the student has written something.
+  document.querySelectorAll('[data-reveal]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = document.getElementById(btn.dataset.needs);
+      const status = document.getElementById(btn.dataset.needs + '-status');
+      if (box.value.trim().length < 20) {
+        status.textContent = 'Write your own answer first, then compare.';
+        box.focus();
+        return;
+      }
+      status.textContent = '';
+      document.getElementById(btn.dataset.reveal).hidden = false;
+    });
+  });
+
+  // --- Matching: tap a word, then its definition (or the other way round) ---
+  const game = document.getElementById('match-game');
+  if (game) {
+    const matchStatus = document.getElementById('match-status');
+    const totalPairs = game.querySelectorAll('[data-term]').length;
+    let picked = null;
+    let matched = 0;
+    const keyOf = (el) => el.dataset.term || el.dataset.def;
+    game.querySelectorAll('.match-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('matched')) return;
+        if (!picked || picked.classList.contains('def') === item.classList.contains('def')) {
+          if (picked) picked.classList.remove('selected');
+          picked = item;
+          item.classList.add('selected');
+          return;
+        }
+        const first = picked;
+        picked = null;
+        first.classList.remove('selected');
+        if (keyOf(first) === keyOf(item)) {
+          [first, item].forEach((el) => {
+            el.classList.add('matched');
+            el.setAttribute('aria-disabled', 'true');
+          });
+          matched += 1;
+          const term = game.querySelector('[data-term="' + keyOf(item) + '"]').textContent;
+          matchStatus.textContent = matched === totalPairs
+            ? 'All ' + totalPairs + ' matched! You know the key words.'
+            : 'Yes, that\'s ' + term + '. ' + matched + ' of ' + totalPairs + ' matched.';
+        } else {
+          [first, item].forEach((el) => {
+            el.classList.add('wrong');
+            setTimeout(() => el.classList.remove('wrong'), 600);
+          });
+          matchStatus.textContent = 'Not quite. Try a different pair. ' + matched + ' of ' + totalPairs + ' matched.';
+        }
+      });
+    });
+  }
+
+  // --- Fill in the blank: hint after one miss, answer after three ---
+  document.querySelectorAll('.blank-row').forEach((row) => {
+    const input = row.querySelector('.blank-input');
+    const status = row.querySelector('.blank-status');
+    const answers = row.dataset.answers.split('|');
+    let misses = 0;
+    function check() {
+      const guess = input.value.trim().toLowerCase();
+      if (!guess) return;
+      if (answers.includes(guess)) {
+        row.classList.add('right');
+        row.classList.remove('miss');
+        input.readOnly = true;
+        status.textContent = 'Correct';
+        return;
+      }
+      misses += 1;
+      row.classList.add('miss');
+      if (misses >= 3) {
+        status.textContent = 'The answer is "' + answers[0] + '".';
+      } else {
+        status.textContent = 'Not quite. Hint: it starts with "' + answers[0][0] + '".';
+      }
+    }
+    row.querySelector('button').addEventListener('click', check);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') check();
+    });
+  });
+
+  function money(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  // --- Savings goal timeline ---
+  const goalInputs = ['goal-price', 'goal-weekly', 'goal-start'].map((id) => document.getElementById(id));
+  function updateGoal() {
+    const [price, weekly, start] = goalInputs.map((el) => Math.max(0, Number(el.value) || 0));
+    const left = Math.max(0, price - start);
+    const note = document.getElementById('goal-note');
+    if (!weekly) {
+      document.getElementById('goal-weeks').textContent = '—';
+      document.getElementById('goal-when').textContent = '—';
+      note.textContent = 'Put in how much you can save each week, even $1.';
+      return;
+    }
+    const weeks = Math.ceil(left / weekly);
+    const months = weeks / 4.33;
+    document.getElementById('goal-weeks').textContent = weeks;
+    document.getElementById('goal-when').textContent = weeks === 0 ? 'Now'
+      : months < 1 ? 'Under a month'
+      : months < 24 ? Math.round(months) + (Math.round(months) === 1 ? ' month' : ' months')
+      : (months / 12).toFixed(1) + ' years';
+    if (weeks === 0) {
+      note.textContent = 'You already have enough. Before you buy, check: is it still the thing you want most?';
+    } else {
+      const faster = Math.ceil(left / (weekly + 5));
+      note.textContent = 'You need ' + money(left) + ' more. Saving ' + money(weekly + 5) + ' a week instead would get you there in ' + faster + ' weeks, ' + (weeks - faster) + (weeks - faster === 1 ? ' week' : ' weeks') + ' sooner.';
+    }
+  }
+  goalInputs.forEach((el) => el.addEventListener('input', updateGoal));
+  updateGoal();
+
+  const completeBtn = document.getElementById('complete-btn');
+  function renderComplete() {
+    if (Mintly.isLessonComplete('lesson-3')) {
+      completeBtn.textContent = '✓ Lesson complete';
+      completeBtn.classList.add('done');
+    }
+  }
+  completeBtn.addEventListener('click', () => {
+    Mintly.markLessonComplete('lesson-3');
+    renderComplete();
+  });
+  renderComplete();
+</script>
+</body>
+</html>

@@ -3,7 +3,16 @@ const Mintly = (() => {
   const USERS_KEY = "mintly:users";
   const SESSION_KEY = "mintly:session";
   const INTEREST_PREFIX = "mintly:interest:";
-  const LESSON_IDS = ["lesson-1", "lesson-2", "lesson-3", "lesson-4"];
+  // The Financial Literacy course, in order. Add a lesson here and it shows up in the course
+  // list, progress counts, "Continue learning" links and the locked-course messages.
+  const LESSONS = [
+    { id: "lesson-1", title: "What is financial literacy?", mins: 20 },
+    { id: "lesson-2", title: "Needs vs. wants: building a simple budget", mins: 10 },
+    { id: "lesson-3", title: "Saving for something you want", mins: 12 },
+    { id: "lesson-4", title: "How banks work: accounts, debit cards and interest", mins: 12 },
+    { id: "lesson-5", title: "Intro to investing: stocks, risk and diversification", mins: 15 },
+  ];
+  const LESSON_IDS = LESSONS.map((l) => l.id);
 
   function readJSON(key, fallback) {
     try {
@@ -142,6 +151,11 @@ const Mintly = (() => {
     return completedCount() === LESSON_IDS.length;
   }
 
+  // The first lesson not yet completed (or lesson 1 again once everything is done).
+  function nextLesson() {
+    return LESSONS.find((l) => !isLessonComplete(l.id)) || LESSONS[0];
+  }
+
   // --- Research interest (what the user chose to learn about on Explore) ---
 
   function saveInterest(interest) {
@@ -170,6 +184,33 @@ const Mintly = (() => {
       btn.setAttribute("aria-expanded", String(nav.classList.toggle("nav-open")));
     });
     right.appendChild(btn);
+    const close = () => {
+      nav.classList.remove("nav-open");
+      btn.setAttribute("aria-expanded", "false");
+    };
+    // close the menu after a tap on a link (needed for same-page links like #simulate) or on Escape
+    links.addEventListener("click", (e) => { if (e.target.closest("a")) close(); });
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("nav-open")) { close(); btn.focus(); } });
+  }
+
+  // Mark the current section in the header so people can see where they are.
+  // Lessons and the course page count as "Learn"; electives count as "Explore".
+  function markActiveNav() {
+    const here = location.pathname.split("/").pop() || "index.html";
+    const inLessons = location.pathname.includes("/lessons/");
+    let section = here;
+    if (inLessons && /^(lesson-\d+|financial-literacy)\.html$/.test(here)) section = "learn";
+    else if (inLessons) section = "explore";
+    document.querySelectorAll(".nav-links a").forEach((a) => {
+      const href = a.getAttribute("href") || "";
+      if (href.includes("#")) return;
+      const file = href.split("?")[0].split("/").pop();
+      const match =
+        (section === "learn" && /^lesson-\d+\.html$/.test(file)) ||
+        (section === "explore" && file === "explore.html") ||
+        (!inLessons && file === here);
+      if (match) a.setAttribute("aria-current", "page");
+    });
   }
 
   function requireSubscription() {
@@ -179,7 +220,10 @@ const Mintly = (() => {
   }
 
   return {
+    LESSONS,
     LESSON_IDS,
+    nextLesson,
+    markActiveNav,
     isLessonComplete,
     markLessonComplete,
     completedCount,
@@ -201,4 +245,5 @@ const Mintly = (() => {
 document.addEventListener("DOMContentLoaded", () => {
   Mintly.renderNavAuth("nav-auth");
   Mintly.setupMobileNav();
+  Mintly.markActiveNav();
 });

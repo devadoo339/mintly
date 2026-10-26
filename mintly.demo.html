@@ -2,6 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mintly — Learn how to make financial decisions</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -302,7 +303,10 @@ function leafReply(q){const c=co(),ids=S.sel.size?[...S.sel]:(S.open!==null?[S.o
 /* ---- live quotes: server.js proxies Alpha Vantage with ALPHA_VANTAGE_API_KEY ---- */
 const API=location.protocol=="file:"?"http://localhost:8000":"",PRICEQ=/\b(price|quote|trading|worth|cost)\b|stock at/i;
 const usd=n=>n.toLocaleString("en-US",{style:"currency",currency:"USD"});
+/* ask the server once whether a key is set; without one we skip the API and stay on mock data */
+let LIVE;const liveOn=()=>LIVE||(LIVE=fetch(`${API}/api/status`).then(r=>r.ok?r.json():{live:true}).then(d=>!!d.live).catch(()=>null));
 async function liveQuote(c){const f=usd;
+ if(await liveOn()===false)return`<h4>Live price unavailable</h4><p class="mute">This copy of Mintly is running without a market-data key, so prices here are mock data. Set <b>ALPHA_VANTAGE_API_KEY</b> and restart <b>npm start</b> to see the live price.</p>`;
  try{const r=await fetch(`${API}/api/quote?symbol=${c.ticker}`),d=await r.json();if(!r.ok)throw Error(d.error);const up=d.change>=0;
   return`<h4>${c.name} (${c.ticker}) right now</h4><p><b style="font-size:22px">${f(d.price)}</b> <span style="color:var(${up?"--gain":"--bad"});font-weight:700">${up?"+":""}${d.change.toFixed(2)} (${d.changePercent})</span></p><p class="mute" style="font-size:13px">Last trading day ${d.day} · Open ${f(d.open)} · High ${f(d.high)} · Low ${f(d.low)} · Live data from Alpha Vantage</p>A price alone doesn't tell you whether a stock is cheap or expensive. How does it compare with what the company earns?`}
  catch(e){return`<h4>Live price unavailable</h4><p class="mute">${e instanceof TypeError?"Couldn't reach the quote server.":e.message} Run <b>npm start</b>, then open the demo at localhost:8000.</p>`}}
@@ -402,6 +406,7 @@ function hr(b,r){b.parentNode.querySelectorAll("button").forEach(x=>x.classList.
 let HR="1M";
 function hvPath(p){const mn=Math.min(...p),mx=Math.max(...p),w=600/Math.max(1,p.length-1);return p.map((v,i)=>`${i?"L":"M"}${(i*w).toFixed(1)},${(94-(v-mn)/((mx-mn)||1)*88).toFixed(1)}`).join("")}
 async function hvLive(anim){const hv=$("hv");
+ if(await liveOn()===false){if(!hv.dataset.live)$("hsrc").textContent="Simulation. No real money. Mock data. Live chart is off because no Alpha Vantage key is set.";return false}
  try{const r=await fetch(`${API}/api/chart?symbol=NVDA&range=${HR}`),d=await r.json();if(!r.ok)throw Error(d.error);
   const p=d.points.map(x=>x.c),chg=(p[p.length-1]/p[0]-1)*100,col=`var(${chg>=0?"--gain":"--bad"})`,el=hv.querySelector("path");
   if(anim||!hv.dataset.live||!el)hv.innerHTML=`<svg viewBox="0 0 600 100" preserveAspectRatio="none" class="spark"><path d="${hvPath(p)}" pathLength="1" fill="none" stroke="${col}" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;

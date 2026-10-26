@@ -84,7 +84,7 @@
       <div class="icon bg-mint">📘</div>
       <div>
         <div class="title">Financial Literacy</div>
-        <div class="desc">Budgeting, saving, and the money basics every teen needs</div>
+        <div class="desc">5 lessons: budgeting, saving, how banks work and investing basics</div>
       </div>
       <div class="meta" id="fl-meta">Start here</div>
     </a>
@@ -97,7 +97,7 @@
       <div class="icon bg-gold">🃏</div>
       <div>
         <div class="title">Collectables</div>
-        <div class="desc">How trading cards, sneakers, and other collectibles hold — or lose — their value</div>
+        <div class="desc">How trading cards, sneakers, and other collectibles hold — or lose — their value. Unlocks when you finish Financial Literacy.</div>
       </div>
       <div class="meta">🔒 Locked</div>
     </a>
@@ -106,7 +106,7 @@
       <div class="icon bg-blue">₿</div>
       <div>
         <div class="title">Cryptocurrencies</div>
-        <div class="desc">What crypto actually is, and how to think about the risk</div>
+        <div class="desc">What crypto actually is, and how to think about the risk. Unlocks after Financial Literacy and Collectables.</div>
       </div>
       <div class="meta">🔒 Locked</div>
     </a>
@@ -131,7 +131,7 @@
   const done = Mintly.completedCount();
   const total = Mintly.LESSON_IDS.length;
   document.getElementById('fl-meta').textContent =
-    done === 0 ? 'Start here' : done === total ? '✓ Complete — review' : done + ' of ' + total + ' complete';
+    done === 0 ? 'Start here →' : done === total ? '✓ Complete — review' : done + ' of ' + total + ' complete · continue →';
 
   const curiousForm = document.getElementById('curious-form');
   const otherField = document.getElementById('curious-other-field');
