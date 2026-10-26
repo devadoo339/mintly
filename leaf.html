@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mintly — Meet Leaf, your AI learning partner</title>
+<meta name="description" content="Leaf is Mintly's AI research companion. It reads with you, shows its evidence, asks questions back and never says buy or sell.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a class="brand" href="index.html">mintly<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons/lesson-1.html">Learn</a></li>
+      <li><a href="lessons/explore.html">Explore</a></li>
+      <li><a href="leaf.html">Leaf AI</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="parents.html">For Parents</a></li>
+      <li><a href="mintly.demo.html?from=site">Demo</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap parents-hero leaf-hero">
+    <div>
+      <div class="eyebrow-mint">Leaf AI</div>
+      <h1>Meet Leaf, your <span class="accent">research companion.</span></h1>
+      <p>Leaf is Mintly's AI learning partner. It reads with you, shows its evidence and never says buy or sell. Leaf helps you think a decision through, and the decision is always yours.</p>
+      <div class="hero-actions leaf-actions">
+        <a class="btn" href="mintly.demo.html?from=site">Try Leaf in the demo</a>
+        <a class="btn btn-secondary" href="#how-leaf-teaches">How Leaf teaches</a>
+      </div>
+    </div>
+
+    <div class="leaf-chat" aria-label="Example conversation with Leaf">
+      <div class="leaf-chat-top"><span class="leaf-av">L</span><b>Leaf</b><span class="leaf-chat-sub">Reading 2 articles about NVIDIA</span></div>
+      <div class="leaf-msg me">Summarize this article.</div>
+      <div class="leaf-msg ai">Big cloud companies are spending record amounts on data centers, and NVIDIA supplies most of the chips. Analysts expect strong sales to continue for several quarters.</div>
+      <div class="leaf-msg me">What's the strongest argument against it?</div>
+      <div class="leaf-msg ai">Customers are spending far more than AI products currently earn. If that spending slows, growth could drop quickly, and the stock price already expects a lot.</div>
+      <div class="leaf-msg me">Are these articles actually saying different things?</div>
+      <div class="leaf-msg ai">Partly. One says demand is outrunning supply, the other says the spending may be a bubble. Both agree sales are strong. They disagree on whether it lasts.</div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-eyebrow">What Leaf does</div>
+    <h2 class="section-heading">Everything you need to read, question and decide.</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon bg-mint"></div>
+        <h3>Summarize</h3>
+        <p>Add articles to Leaf and ask what they say. Leaf pulls out the key facts, the evidence supporting the company and the reasons for caution.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon bg-gold"></div>
+        <h3>Challenge</h3>
+        <p>Ask for the strongest case for, or against. Leaf makes the argument its supporters or critics would, then asks which risk would hurt most.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon bg-peach"></div>
+        <h3>Compare</h3>
+        <p>Leaf shows where your sources agree and where they disagree, and nudges you to find one that disagrees with you.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon bg-blue"></div>
+        <h3>Flag what's missing</h3>
+        <p>Leaf points out what you haven't checked yet: how the price compares with earnings, who the biggest customers are, and what would change your mind.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon bg-mint"></div>
+        <h3>Help with your writing</h3>
+        <p>Leaf suggests edits right in your argument: tighten your wording, add evidence from your research, check for missing risks or help you organize. You decide what to accept.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon bg-gold"></div>
+        <h3>Check the price</h3>
+        <p>Ask what a stock is trading at and Leaf shows the latest quote, then reminds you that a price alone doesn't tell you whether it's cheap or expensive.</p>
+      </div>
+    </div>
+
+    <div class="how-card" id="how-leaf-teaches">
+      <div class="how-copy">
+        <div class="section-eyebrow">How Leaf teaches</div>
+        <h2>Questions, not answers.</h2>
+        <p>Leaf uses Socratic tutoring: it answers each question with another question. It helps you think it through and never decides for you, so the reasoning is your own.</p>
+      </div>
+      <div class="step-list">
+        <div class="step-row"><span class="step-num">1</span><span class="step-text">Research what people are saying</span></div>
+        <div class="step-row"><span class="step-num">2</span><span class="step-text">Understand the evidence on both sides</span></div>
+        <div class="step-row"><span class="step-num">3</span><span class="step-text">Question it before you trust it</span></div>
+        <div class="step-row"><span class="step-num">4</span><span class="step-text">Decide, and name the biggest risk</span></div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">Leaf pushes your thinking</div>
+    <h2 class="section-heading">Pick a side, and Leaf asks the question that matters.</h2>
+    <div class="feature-grid leaf-prompts">
+      <div class="feature-card">
+        <span class="leaf-pick">Buy</span>
+        <p class="leaf-q">“What would need to be true for this to keep growing?”</p>
+      </div>
+      <div class="feature-card">
+        <span class="leaf-pick">Wait</span>
+        <p class="leaf-q">“What information would change your mind?”</p>
+      </div>
+      <div class="feature-card">
+        <span class="leaf-pick">Pass</span>
+        <p class="leaf-q">“What's the strongest reason not to?”</p>
+      </div>
+    </div>
+
+    <div class="how-card">
+      <div class="how-copy">
+        <div class="section-eyebrow">Leaf's ground rules</div>
+        <h2>Built to help you think, not to think for you.</h2>
+        <p>Leaf never tells you to buy or sell. It shows where its information comes from, keeps the argument in your own words, and works with practice money only.</p>
+      </div>
+      <div class="step-list">
+        <div class="step-row"><span class="step-num">✓</span><span class="step-text">Never says buy or sell</span></div>
+        <div class="step-row"><span class="step-num">✓</span><span class="step-text">Shows its evidence</span></div>
+        <div class="step-row"><span class="step-num">✓</span><span class="step-text">Your words carry the argument</span></div>
+        <div class="step-row"><span class="step-num">✓</span><span class="step-text">No real money involved</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Mintly doesn't teach young people what to think about money. It teaches them how to think when making financial decisions.<br>Leaf's examples use mock data and are not financial advice.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
