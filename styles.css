@@ -56,14 +56,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme=light]) {
     --bg: #0E0E0E; --panel: #181817; --ink: #F5F5F4; --muted: #9A9A95; --border: #2A2A28;
-    --acc: #F5F5F4; --acct: #F5F5F4; --accsoft: #2A2A28; --onacc: #0E0E0E;
+    --acc: #A8DDC0; --acct: #A8DDC0; --accsoft: #16301F; --onacc: #0E0E0E;
     --gain: #3DD68C; --gainsoft: #0F2A1D; --bad: #FF7A5C; --badsoft: #3A1D16; --shadow: rgba(0, 0, 0, .6); --pgreen: #A8DDC0;
     color-scheme: dark;
   }
 }
 :root[data-theme=dark] {
   --bg: #0E0E0E; --panel: #181817; --ink: #F5F5F4; --muted: #9A9A95; --border: #2A2A28;
-  --acc: #F5F5F4; --acct: #F5F5F4; --accsoft: #2A2A28; --onacc: #0E0E0E;
+  --acc: #A8DDC0; --acct: #A8DDC0; --accsoft: #16301F; --onacc: #0E0E0E;
   --gain: #3DD68C; --gainsoft: #0F2A1D; --bad: #FF7A5C; --badsoft: #3A1D16; --shadow: rgba(0, 0, 0, .6); --pgreen: #A8DDC0;
   color-scheme: dark;
 }
@@ -263,7 +263,7 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
   z-index: 1;
   width: 270px;
   background: var(--panel);
-  border: 7px solid var(--ink);
+  border: 7px solid var(--acc);
   border-radius: 34px;
   padding: 20px 16px;
   box-shadow: 0 30px 60px rgba(20, 20, 20, 0.15);
@@ -458,8 +458,8 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
 
 .btn-dark {
   display: inline-block;
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--acc);
+  color: var(--onacc);
   font-weight: 600;
   font-size: 14px;
   padding: 11px 22px;
@@ -777,7 +777,7 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
   font-family: inherit;
 }
 
-.auth-tab.active { background: var(--ink); color: var(--bg); }
+.auth-tab.active { background: var(--acc); color: var(--onacc); }
 
 .auth-form { display: flex; flex-direction: column; gap: 14px; }
 .auth-form.hidden { display: none; }
@@ -976,7 +976,7 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
   margin-bottom: 14px;
 }
 
-.path-stage-real .path-tag { background: var(--ink); color: var(--bg); }
+.path-stage-real .path-tag { background: var(--acc); color: var(--onacc); }
 .path-stage h3 { margin: 0 0 8px; font-size: 20px; font-weight: 800; }
 .path-stage p { margin: 0; font-size: 14px; color: var(--ink); }
 
@@ -1226,8 +1226,8 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
   font: inherit;
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--bg);
-  background: var(--ink);
+  color: var(--onacc);
+  background: var(--acc);
   border: none;
   border-radius: 999px;
   padding: 7px 14px;
