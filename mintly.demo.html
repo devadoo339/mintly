@@ -17,6 +17,11 @@ nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px soli
 nav .wrap{display:flex;align-items:center;gap:26px;height:64px}nav a{color:var(--mute);text-decoration:none;font-size:15px;font-weight:600;cursor:pointer}nav a:hover{color:var(--ink)}
 .logo{display:flex;align-items:center;gap:8px;font:800 26px var(--fh)!important;letter-spacing:-.01em;color:var(--ink)!important;margin-right:auto}.logo .dot{color:#2F7D58}:root[data-theme=dark] .logo .dot{color:#A8DDC0}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .logo .dot{color:#A8DDC0}}
 @media(max-width:760px){nav .l{display:none}}
+.mt{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:none;cursor:pointer}.mt i{display:block;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+nav.open .mt i:nth-child(1){transform:translateY(7px) rotate(45deg)}nav.open .mt i:nth-child(2){opacity:0}nav.open .mt i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:760px){.mt{display:inline-flex}nav .wrap{gap:12px}nav.open .wrap{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:8px}nav.open .l{display:block;order:3;flex-basis:100%;padding:12px 0;font-size:17px}
+ .dock .tgl{width:44px;height:44px;padding:0;font-size:0;display:grid;place-items:center}#cu::before{content:"\2699\FE0E";font-size:19px}#tg::before{content:"\25D0";font-size:19px}
+ .hv .rng button{padding:10px 14px}}
 .btn{background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:14px 28px;font:700 16px var(--fb);cursor:pointer;transition:filter .15s}
 .btn:hover{filter:brightness(.92)}.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}.btn.sm{padding:9px 18px;font-size:14px}.btn:disabled{opacity:.3;cursor:not-allowed}
 :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
@@ -180,9 +185,9 @@ section.alt{background:var(--panel);border-block:1px solid var(--line)}
 :root[data-pal=color] .bgt{box-shadow:6px 6px 0 #A8DDC0}
 :root[data-pal=color] .tgl#cu{background:#A8DDC0;border-color:#151515}
 </style></head><body>
-<div class="cp" id="cp"></div><div class="dock"><button class="tgl" id="cu" onclick="$('cp').classList.toggle('open')">Customize</button><button class="tgl" id="tg" onclick="theme()"></button></div><div class="np"><i id="np"></i></div><nav><div class="wrap"><a class="logo" onclick="home()">mintly<span class="dot">.</span></a>
+<div class="cp" id="cp"></div><div class="dock"><button class="tgl" id="cu" aria-label="Customize" onclick="$('cp').classList.toggle('open')">Customize</button><button class="tgl" id="tg" onclick="theme()"></button></div><div class="np"><i id="np"></i></div><nav><div class="wrap"><a class="logo" onclick="home()">mintly<span class="dot">.</span></a>
 <a class="l" href="index.html">Home</a><a class="l" onclick="go('journey')">Learn</a><a class="l" onclick="go('idea')">Explore</a><a class="l" onclick="start()">Simulate</a><a class="l" onclick="go('leaf')">Leaf AI</a><a class="l" onclick="go('parents')">For Parents</a>
-<button class="btn sm" onclick="start()">Try the Demo</button></div></nav>
+<button class="btn sm" onclick="start()">Try the Demo</button><button class="mt" aria-label="Menu" aria-expanded="false" onclick="const n=this.closest('nav');this.setAttribute('aria-expanded',n.classList.toggle('open'))"><i></i><i></i><i></i></button></div></nav>
 
 <main id="site"><nav class="chap" id="chap"></nav>
 <div class="wrap hero" id="top"><div><h1>Everyone's talking about this stock. <span class="hl">Would you buy it?</span></h1>
@@ -481,4 +486,5 @@ let GM={};function game(){GM={i:0,st:0,ok:0};$("md").classList.add("open");gq()}
 function gq(){const q=FH[GM.i];$("mdc").innerHTML=`<div class="sc"><b>Fact or hype?</b><span class="mute">${GM.i+1}/5 · Streak ${GM.st}</span></div><p style="font:800 28px/1.15 var(--fh);margin:28px 0;letter-spacing:-.02em">“${q[0]}”</p><div class="chips" style="justify-content:center"><button class="btn" onclick="ga('Fact')">Fact</button><button class="btn ghost" onclick="ga('Hype')">Hype</button></div><p id="gf" style="min-height:44px;margin-top:16px;font-weight:600"></p>`}
 function ga(a){const q=FH[GM.i],ok=a==q[1];if(ok){GM.ok++;GM.st++;if(!G.gp)gain(10+(GM.st>=3?5:0),GM.st>=3?"Streak bonus":"Correct")}else GM.st=0;$("gf").textContent=(ok?"Right. ":"Not quite. ")+q[2];$("gf").style.color=ok?"var(--gain)":"var(--bad)";document.querySelectorAll("#mdc .btn").forEach(b=>b.disabled=true);setTimeout(()=>{GM.i++;GM.i<5?gq():gend()},1100)}
 function gend(){G.gp=1;if(GM.ok>=4)award("game",20,"Won the bonus round","hype");$("mdc").innerHTML=`<h3>${GM.ok} of 5</h3><p class="mute" style="margin:10px 0 20px">${GM.ok>=4?"Sharp. You can tell evidence from noise.":"Evidence comes with numbers you can check. Hype comes with excitement. Want another round?"}</p><div class="chips" style="justify-content:center"><button class="btn" onclick="$('md').classList.remove('open')">Done</button><button class="btn ghost" onclick="game()">Play again</button></div>`;if(GM.ok>=4)confetti()}
-$("hv").innerHTML=spark("NVDA1M","");hvLive(1);</script></body></html>
+$("hv").innerHTML=spark("NVDA1M","");hvLive(1);
+document.querySelector("nav").addEventListener("click",e=>{if(e.target.classList.contains("l")){e.currentTarget.classList.remove("open");document.querySelector(".mt").setAttribute("aria-expanded",false)}});</script></body></html>

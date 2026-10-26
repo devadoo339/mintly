@@ -248,8 +248,8 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
 
 .hero-blob {
   position: absolute;
-  width: 380px;
-  height: 380px;
+  width: min(380px, 100vw);
+  height: min(380px, 100vw);
   border-radius: 50%;
   background: var(--card);
   z-index: 0;
@@ -1448,4 +1448,48 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
 
 @media (max-width: 640px) {
   .match-grid, .split-grid, .calc-grid, .calc-results, .vocab-list { grid-template-columns: 1fr; }
+}
+
+/* Mobile nav menu (toggle is added by script.js) and phone gutters */
+.nav-toggle { display: none; }
+
+@media (max-width: 860px) {
+  /* several sections set "padding: Npx 0", which wipes out .wrap's side gutter on phones */
+  .wrap { padding-left: 20px; padding-right: 20px; }
+
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: none;
+    cursor: pointer;
+  }
+  .nav-toggle span { display: block; height: 2px; border-radius: 2px; background: var(--ink); transition: transform .2s, opacity .2s; }
+  .nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .navbar.nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    order: 3;
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    padding: 4px 0 8px;
+    border-top: 1px solid var(--border);
+  }
+  .navbar.nav-open .nav-links a { display: block; padding: 12px 0; font-size: 17px; color: var(--ink); }
+}
+
+@media (max-width: 480px) {
+  .navbar .nav-right { gap: 10px; }
+  span.nav-account-link { display: none; }
 }
