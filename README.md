@@ -42,6 +42,7 @@ API routes: `/api/status` (is a key set?), `/api/quote?symbol=NVDA`, `/api/chart
 
 - `index.html` home page, `mintly.demo.html` interactive demo
 - `pricing.html` (Starter $10, Plus $15, Family Pro $20 per month, School $8 per student per month for 50+ students; billing is not live, choosing a plan creates a demo account)
+- `leaf.html` about Leaf, the AI learning partner
 - `parents.html`, `signin.html` (demo accounts stored only in the browser)
 - `lessons/financial-literacy.html` course page with progress, lessons 1–5, `explore.html`,
   locked electives `collectables.html` and `cryptocurrencies.html`

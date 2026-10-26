@@ -1,5 +1,5 @@
 :root {
-  /* Mintly demo palette: graphite on stone, green for gains, red for risk */
+  /* Mintly palette: graphite text on stone, the poster's deep green and mint as the accent, red for risk */
   --fh: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --fb: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --bg: #F5F5F4;
@@ -9,9 +9,9 @@
   --border: #E4E4E1;
   --line: var(--border);
   --mute: var(--muted);
-  --acc: #151515;
-  --acct: #151515;
-  --accsoft: #E9E9E6;
+  --acc: #23664A;
+  --acct: #23664A;
+  --accsoft: #DCF0E4;
   --onacc: #fff;
   --gain: #0A8A4A;
   --gainsoft: #E3F4EA;
@@ -1408,4 +1408,22 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
     background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
+}
+
+/* Leaf AI page */
+.leaf-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.leaf-actions { margin: 28px 0 0; }
+.leaf-chat { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 10px; box-shadow: 10px 10px 0 var(--accsoft); }
+.leaf-chat-top { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
+.leaf-chat-sub { margin-left: auto; color: var(--muted); font-size: 12.5px; }
+.leaf-av { width: 28px; height: 28px; border-radius: 50%; background: var(--acc); color: var(--onacc); display: grid; place-items: center; font: 800 13px var(--fh); }
+.leaf-msg { max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.45; }
+.leaf-msg.me { align-self: flex-end; background: var(--acc); color: var(--onacc); border-bottom-right-radius: 4px; font-weight: 600; }
+.leaf-msg.ai { align-self: flex-start; background: var(--bg); border-bottom-left-radius: 4px; }
+.leaf-pick { display: inline-block; background: var(--accsoft); color: var(--acct); font-weight: 700; font-size: 13px; border-radius: 999px; padding: 4px 12px; margin-bottom: 14px; }
+.leaf-prompts .feature-card p.leaf-q { color: var(--ink); font: 700 18px/1.35 var(--fh); }
+
+@media (max-width: 860px) {
+  .leaf-hero { grid-template-columns: 1fr; gap: 32px; }
+  .parents-hero.leaf-hero h1 { font-size: 38px; }
 }
