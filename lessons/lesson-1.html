@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What is financial literacy? — Mintly</title>
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
+<script>try{var t=localStorage.getItem("mintly:theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 
@@ -13,11 +17,12 @@
   <div class="wrap navbar">
     <a class="brand" href="../index.html">mintly<span class="dot">.</span></a>
     <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
       <li><a href="lesson-1.html">Learn</a></li>
       <li><a href="explore.html">Explore</a></li>
       <li><a href="../pricing.html">Pricing</a></li>
       <li><a href="../parents.html">For Parents</a></li>
-      <li><a href="../about.html">About</a></li>
+      <li><a href="../mintly.demo.html?from=site">Demo</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-auth" id="nav-auth"></div>
@@ -29,49 +34,279 @@
   <article class="lesson-body">
     <div class="eyebrow">Financial Literacy · Lesson 1</div>
     <h1>What is financial literacy?</h1>
+    <p class="lesson-meta">About 20 minutes · 6 activities · Your typed answers are saved in this browser</p>
 
-    <p>Financial literacy is simply <strong>knowing how to handle money well</strong> — how to earn it, spend it, save it, and grow it, without letting it stress you out or control you.</p>
+    <p>Every day you make money decisions, even if you don't notice them. Buying lunch or packing one. Spending birthday money right away or keeping some. Signing up for a "free" trial that turns into a monthly charge. Each choice is small, but together they shape how much freedom you'll have later.</p>
 
-    <p>It's not about being rich. Plenty of people who earn a lot of money still struggle, because no one ever taught them how money actually works. Financial literacy is the set of skills that makes that struggle avoidable.</p>
+    <p>This lesson explains what financial literacy really means, why it matters more for you now than it seems, and the five building blocks that everything else in this course is built on. Along the way you'll type, match, and calculate, because you remember what you do, not just what you read.</p>
 
-    <h2>Why it matters, starting now</h2>
-    <p>Most adults say they wish they'd learned about money earlier. The habits you build as a teen — how you think about spending, saving, and debt — tend to stick for life. Starting at 13–18 means you get a head start that most people never get.</p>
-
-    <h2>The five building blocks</h2>
-    <p>Everything in personal finance comes back to five basic skills:</p>
-    <ul>
-      <li><strong>Earning</strong> — understanding where money comes from (a job, allowance, a side hustle) and what it's really worth.</li>
-      <li><strong>Spending</strong> — telling the difference between a need and a want, and spending on purpose instead of by accident.</li>
-      <li><strong>Saving</strong> — setting money aside before you spend the rest, so future-you has options.</li>
-      <li><strong>Investing</strong> — putting money to work so it grows over time, instead of just sitting still.</li>
-      <li><strong>Borrowing</strong> — understanding debt and credit, so it works for you instead of against you.</li>
-    </ul>
-
-    <div class="callout">
-      <strong>Quick example</strong>
-      Two people each save $20 a month starting at age 15. One keeps it in cash under a mattress. The other invests it and earns an average 7% a year. By age 65, the difference is well over $100,000 — from the exact same habit, just one extra step: understanding how money grows.
+    <div class="activity" id="warmup">
+      <div class="activity-label">Warm-up · Typing</div>
+      <h3>Before we start: what do you think it means?</h3>
+      <p>In a sentence or two, write what you think "financial literacy" means. There's no wrong answer here. You'll come back to this at the end and see how your thinking changed.</p>
+      <label class="sr-only" for="warmup-text">Your first definition of financial literacy</label>
+      <textarea class="write-box" id="warmup-text" data-save="warmup" rows="3" placeholder="I think financial literacy means..."></textarea>
+      <div class="activity-actions">
+        <button class="btn" type="button" data-lock="warmup-text">Save my answer</button>
+        <span class="activity-status" id="warmup-status" aria-live="polite"></span>
+      </div>
     </div>
 
+    <h2>Breaking down the words</h2>
+    <p>The term has two parts, and each one tells you something.</p>
+    <ul>
+      <li><strong>Financial</strong> means anything to do with money: earning it, spending it, saving it, growing it, and borrowing it.</li>
+      <li><strong>Literacy</strong> usually means being able to read and write. More broadly, it means being able to understand something well enough to use it. Someone who is "computer literate" can actually get things done on a computer, not just turn it on.</li>
+    </ul>
+    <p>Put them together and financial literacy is the ability to <strong>"read" money situations</strong>: to understand what's really going on with a paycheck, a price tag, a loan offer, or an investment, and to make a good choice because of it.</p>
+
+    <div class="definition-card">
+      <div class="definition-term">Financial literacy <span>(noun)</span></div>
+      <p>Having the <strong>knowledge</strong>, <strong>skills</strong> and <strong>confidence</strong> to make informed decisions about money, so that money supports your goals instead of controlling your life.</p>
+    </div>
+
+    <p>Notice the three parts of that definition. They're different, and you need all three:</p>
+    <ul>
+      <li><strong>Knowledge</strong> is knowing the facts: what interest is, what a budget is, what "net pay" means.</li>
+      <li><strong>Skills</strong> are being able to use those facts: comparing two prices per ounce, building a budget, spotting a bad deal.</li>
+      <li><strong>Confidence</strong> is actually acting on what you know: asking questions before you sign something, saying no to a purchase, starting to save even when the amount feels small.</li>
+    </ul>
+    <p>Someone can know that saving is important and still never do it. Financial literacy isn't a test score. It shows up in what you actually do with money.</p>
+
+    <h2>What financial literacy is not</h2>
+    <p>A few common myths get in the way:</p>
+    <ul>
+      <li><strong>"It's about being rich."</strong> No. People with high incomes can still end up broke if they spend everything they make. People with modest incomes can build real security with good habits. It's about how you handle money, not how much you have.</li>
+      <li><strong>"It's just about stocks."</strong> Investing is one part. Most of financial literacy is everyday stuff: budgeting, avoiding fees, understanding a paycheck, borrowing carefully.</li>
+      <li><strong>"I'll learn it when I'm older."</strong> Money habits form early, and time is the most powerful tool you have. Starting at 15 instead of 30 can make a difference worth tens of thousands of dollars, as you'll see below.</li>
+    </ul>
+
+    <div class="activity">
+      <div class="activity-label">Activity · Typing</div>
+      <h3>Explain it to a friend</h3>
+      <p>A friend says: <em>"I don't need to learn about money yet. I barely have any."</em> What would you tell them? Use at least one idea from this lesson so far.</p>
+      <label class="sr-only" for="friend-text">Your answer to your friend</label>
+      <textarea class="write-box" id="friend-text" data-save="friend" rows="4" placeholder="I'd tell them..."></textarea>
+      <div class="activity-actions">
+        <button class="btn" type="button" data-reveal="friend-sample" data-needs="friend-text">Compare with a sample answer</button>
+        <span class="activity-status" id="friend-text-status" aria-live="polite"></span>
+      </div>
+      <div class="sample-answer" id="friend-sample" hidden>
+        <strong>One strong answer:</strong> "Financial literacy isn't about how much money you have, it's about how you handle it. The habits you build with small amounts, like saving part of what you get, are the same ones you'll use with big amounts later. And starting early means time does a lot of the work for you."
+        <span class="sample-tip">Did yours mention habits, time, or that it's not about being rich? Those are the key ideas.</span>
+      </div>
+    </div>
+
+    <h2>The five building blocks</h2>
+    <p>Almost every money topic fits into one of five building blocks. The rest of this course covers each one in detail, so here's what each means and the key words that come with it.</p>
+
+    <h3 class="block-title"><span>1</span> Earning</h3>
+    <p>Earning is how money comes in: a part-time job, babysitting, an allowance, selling things you make. Money coming in is called <strong>income</strong>.</p>
+    <p>An important surprise for first-time workers: the amount on your job offer isn't what lands in your account. Your <strong>gross pay</strong> is what you earn before anything is taken out. Your <strong>net pay</strong> (also called take-home pay) is what's left after taxes and other deductions. If you're offered $15 an hour, you'll take home somewhat less than $15 for every hour you work. Budgets are always built on net pay, because that's the money you can actually use.</p>
+
+    <h3 class="block-title"><span>2</span> Spending</h3>
+    <p>Money going out is called an <strong>expense</strong>. Spending well starts with telling <strong>needs</strong> (things you must pay for, like food and getting to school) from <strong>wants</strong> (things that are nice but optional).</p>
+    <p>Every purchase also has a hidden price called <strong>opportunity cost</strong>: whatever you give up by choosing it. If you spend $60 on a game, the opportunity cost might be the concert ticket you can no longer afford, or $60 that could have been growing in savings. Thinking "what am I giving up?" before buying is one of the most useful money habits there is.</p>
+
+    <h3 class="block-title"><span>3</span> Saving</h3>
+    <p>Saving means setting money aside for later instead of spending it now. A <strong>budget</strong> (a plan for your money before you spend it) makes saving happen on purpose instead of by accident.</p>
+    <p>Two saving ideas matter most. First, <strong>pay yourself first</strong>: move money into savings as soon as you get it, before spending on wants. Second, build an <strong>emergency fund</strong>, money kept aside for surprises like a cracked phone screen or a lost bus pass, so a surprise doesn't become a crisis.</p>
+
+    <h3 class="block-title"><span>4</span> Investing</h3>
+    <p>Investing means putting money into something that can grow over time, like shares of a company or a fund that holds many companies. It's different from saving: savings are safe and easy to reach, while investments can grow more but can also lose value. That trade-off is called <strong>risk</strong>. In general, a chance of higher reward comes with more risk.</p>
+    <p>The engine behind investing is <strong>compound growth</strong> (or <strong>compound interest</strong>): you earn returns not only on the money you put in, but also on the returns you already earned. Growth builds on growth, which is why starting early matters so much. Try it yourself in the calculator below.</p>
+
+    <h3 class="block-title"><span>5</span> Borrowing</h3>
+    <p>Borrowing means using someone else's money now and paying it back later, usually with <strong>interest</strong>, an extra cost for borrowing. A credit card, a car loan and a student loan are all borrowing. Interest works for you when you save and against you when you borrow.</p>
+    <p>Lenders decide whether to lend to you, and how much to charge, partly based on your <strong>credit score</strong>, a number that reflects how reliably you've paid back money in the past. Borrowing carefully and always paying on time builds a strong score, which makes future borrowing (like a first apartment or car) cheaper.</p>
+
+    <div class="callout">
+      <strong>The big picture</strong>
+      Earning brings money in. Spending and saving decide where it goes. Investing helps it grow. Borrowing lets you use money you don't have yet, at a price. Financial literacy is understanding how all five connect.
+    </div>
+
+    <div class="activity">
+      <div class="activity-label">Activity · Matching</div>
+      <h3>Connect the word to its definition</h3>
+      <p>Tap a word, then tap the definition that matches it.</p>
+      <div class="match-grid" id="match-game">
+        <div class="match-col" aria-label="Words">
+          <button class="match-item" type="button" data-term="income">Income</button>
+          <button class="match-item" type="button" data-term="expense">Expense</button>
+          <button class="match-item" type="button" data-term="budget">Budget</button>
+          <button class="match-item" type="button" data-term="opportunity">Opportunity cost</button>
+          <button class="match-item" type="button" data-term="emergency">Emergency fund</button>
+          <button class="match-item" type="button" data-term="interest">Interest</button>
+        </div>
+        <div class="match-col" aria-label="Definitions">
+          <button class="match-item def" type="button" data-def="opportunity">What you give up when you choose one thing over another</button>
+          <button class="match-item def" type="button" data-def="interest">The extra cost of borrowing money, or the extra you earn for saving it</button>
+          <button class="match-item def" type="button" data-def="income">Money that comes in, like pay from a job</button>
+          <button class="match-item def" type="button" data-def="emergency">Money set aside for unexpected costs</button>
+          <button class="match-item def" type="button" data-def="budget">A plan for your money before you spend it</button>
+          <button class="match-item def" type="button" data-def="expense">Money that goes out, like paying for lunch</button>
+        </div>
+      </div>
+      <div class="activity-status" id="match-status" aria-live="polite">0 of 6 matched</div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-label">Activity · Typing</div>
+      <h3>Fill in the missing word</h3>
+      <p>Type the word that completes each sentence, then press Enter or Check.</p>
+      <div class="blank-list">
+        <div class="blank-row" data-answers="gross">
+          <label for="b1">Money you earn before taxes are taken out is your <input id="b1" class="blank-input" autocomplete="off"> pay.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="net|take-home|take home|takehome">
+          <label for="b2">The money that actually lands in your account after taxes is your <input id="b2" class="blank-input" autocomplete="off"> pay.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="compound">
+          <label for="b3">When you earn returns on your past returns, that's called <input id="b3" class="blank-input" autocomplete="off"> growth.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="emergency">
+          <label for="b4">Savings kept for surprises, like a broken phone, is called an <input id="b4" class="blank-input" autocomplete="off"> fund.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="risk">
+          <label for="b5">The chance that an investment could lose value is called <input id="b5" class="blank-input" autocomplete="off">.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="score">
+          <label for="b6">A number that shows how reliably you've paid back borrowed money is your credit <input id="b6" class="blank-input" autocomplete="off">.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Putting it into practice</h2>
+    <p>Knowledge only becomes literacy when you use it. Here are two real decisions to try.</p>
+
+    <div class="activity">
+      <div class="activity-label">Activity · Plan it</div>
+      <h3>You got $50 for your birthday</h3>
+      <p>Decide how to split it. Type an amount in each box. The total has to come to exactly $50.</p>
+      <div class="split-grid">
+        <label class="split-field">Save<span class="money-input">$<input id="split-save" type="number" min="0" max="50" step="1" inputmode="numeric" value="0"></span></label>
+        <label class="split-field">Spend<span class="money-input">$<input id="split-spend" type="number" min="0" max="50" step="1" inputmode="numeric" value="0"></span></label>
+        <label class="split-field">Give<span class="money-input">$<input id="split-give" type="number" min="0" max="50" step="1" inputmode="numeric" value="0"></span></label>
+      </div>
+      <div class="split-total" id="split-total" aria-live="polite">Total: $0 of $50</div>
+      <p class="split-feedback" id="split-feedback"></p>
+    </div>
+
+    <div class="activity">
+      <div class="activity-label">Activity · Calculator</div>
+      <h3>See compound growth for yourself</h3>
+      <p>Pick how much to put away each month, for how long, and where it goes. Then compare the money you put in with what it grows into.</p>
+      <div class="calc-grid">
+        <label class="split-field">Each month<span class="money-input">$<input id="calc-amount" type="number" min="1" max="1000" step="1" inputmode="numeric" value="20"></span></label>
+        <label class="split-field">Years<span class="money-input"><input id="calc-years" type="number" min="1" max="60" step="1" inputmode="numeric" value="50"></span></label>
+        <label class="split-field">Where it goes
+          <select id="calc-rate">
+            <option value="0">Under the mattress (0%)</option>
+            <option value="0.02">Savings account (about 2%)</option>
+            <option value="0.07" selected>Long-term investing (about 7%, not guaranteed)</option>
+          </select>
+        </label>
+      </div>
+      <div class="calc-results">
+        <div><span>You put in</span><b id="calc-in">$0</b></div>
+        <div class="grow"><span>It grows to</span><b id="calc-out">$0</b></div>
+      </div>
+      <p class="calc-note" id="calc-note"></p>
+      <p class="fine-print">Estimates assume the same return every year, which never happens in real life. Investments go up and down, and 7% is a rough long-term average, not a promise.</p>
+    </div>
+
+    <h2>Why this matters more than it seems</h2>
+    <p>The calculator shows the most important idea in this lesson: <strong>time is your biggest advantage</strong>. Someone who saves $20 a month from age 15 can end up with far more than someone who saves $40 a month from age 35, even though the second person puts in more money. Habits you build now, with small amounts, are the same habits that will run your finances when the amounts are much bigger.</p>
+    <p>Financial literacy also protects you. People who understand interest are harder to trick with "buy now, pay later" offers. People who read the fine print notice a free trial that becomes a $15 monthly charge. People with an emergency fund don't have to borrow at high interest when something breaks. Every one of these is a skill, and every skill can be learned.</p>
+
+    <div class="activity" id="final">
+      <div class="activity-label">Wrap-up · Typing</div>
+      <h3>Write your definition again</h3>
+      <p>Here's what you wrote at the start:</p>
+      <blockquote class="your-answer" id="warmup-echo">You haven't written a warm-up answer yet. Scroll up to try it.</blockquote>
+      <p>Now that you've worked through the lesson, write your own definition of financial literacy. Try to include the three parts: knowledge, skills and confidence.</p>
+      <label class="sr-only" for="final-text">Your new definition of financial literacy</label>
+      <textarea class="write-box" id="final-text" data-save="final" rows="4" placeholder="Financial literacy is..."></textarea>
+      <div class="activity-actions">
+        <button class="btn" type="button" data-reveal="final-sample" data-needs="final-text">Compare with the lesson's definition</button>
+        <span class="activity-status" id="final-text-status" aria-live="polite"></span>
+      </div>
+      <div class="sample-answer" id="final-sample" hidden>
+        <strong>The lesson's definition:</strong> Financial literacy is having the knowledge, skills and confidence to make informed decisions about money, so that money supports your goals instead of controlling your life.
+        <span class="sample-tip">Compare it with your warm-up answer. What did you add?</span>
+      </div>
+    </div>
+
+    <h2>Key words from this lesson</h2>
+    <dl class="vocab-list">
+      <div><dt>Income</dt><dd>Money that comes in.</dd></div>
+      <div><dt>Expense</dt><dd>Money that goes out.</dd></div>
+      <div><dt>Gross pay / net pay</dt><dd>Pay before deductions / pay you actually take home.</dd></div>
+      <div><dt>Budget</dt><dd>A plan for your money before you spend it.</dd></div>
+      <div><dt>Opportunity cost</dt><dd>What you give up when you choose something.</dd></div>
+      <div><dt>Emergency fund</dt><dd>Savings set aside for surprises.</dd></div>
+      <div><dt>Risk</dt><dd>The chance an investment loses value.</dd></div>
+      <div><dt>Compound growth</dt><dd>Earning returns on your past returns.</dd></div>
+      <div><dt>Interest</dt><dd>The cost of borrowing, or the reward for saving.</dd></div>
+      <div><dt>Credit score</dt><dd>A number showing how reliably you repay borrowed money.</dd></div>
+    </dl>
+
     <h2>What's next</h2>
-    <p>In the lessons ahead, you'll go through each building block one at a time — starting with budgeting, so you always know where your money is actually going.</p>
+    <p>In the lessons ahead, you'll go through each building block one at a time, starting with budgeting, so you always know where your money is actually going. <a href="lesson-2.html"><strong>Go to Lesson 2: Needs vs. wants →</strong></a></p>
   </article>
 
   <section class="quiz">
     <div class="quiz-box">
       <h2>Quick check</h2>
 
-      <div class="quiz-question">1. Financial literacy is mainly about...</div>
+      <div class="quiz-question">1. Which best describes financial literacy?</div>
       <div class="quiz-options" data-quiz>
-        <button class="quiz-option" data-correct="false">Being born into a wealthy family</button>
-        <button class="quiz-option" data-correct="true">Knowing how to earn, spend, save, and grow money well</button>
-        <button class="quiz-option" data-correct="false">Only knowing how to invest in stocks</button>
+        <button class="quiz-option" data-correct="false">Having a lot of money saved</button>
+        <button class="quiz-option" data-correct="true">Having the knowledge, skills and confidence to make good money decisions</button>
+        <button class="quiz-option" data-correct="false">Knowing how to pick stocks that go up</button>
       </div>
       <div class="quiz-feedback"></div>
 
-      <div class="quiz-question">2. Which of these is NOT one of the five building blocks in this lesson?</div>
+      <div class="quiz-question">2. Your job pays $15 an hour, but your paycheck works out to less than that. Why?</div>
       <div class="quiz-options" data-quiz>
-        <button class="quiz-option" data-correct="false">Saving</button>
+        <button class="quiz-option" data-correct="false">Your employer made a mistake</button>
+        <button class="quiz-option" data-correct="true">$15 is your gross pay; your net pay is after taxes and deductions</button>
+        <button class="quiz-option" data-correct="false">Interest was charged on your pay</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">3. You skip a $30 concert to buy a $30 hoodie. What's the opportunity cost of the hoodie?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="true">The concert</button>
+        <button class="quiz-option" data-correct="false">The hoodie</button>
+        <button class="quiz-option" data-correct="false">Nothing, because they cost the same</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">4. Why does starting to save early make such a big difference?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Banks pay teenagers higher interest</button>
+        <button class="quiz-option" data-correct="true">Compound growth has more time to build on itself</button>
+        <button class="quiz-option" data-correct="false">Prices go down over time</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">5. Which of these is NOT one of the five building blocks?</div>
+      <div class="quiz-options" data-quiz>
         <button class="quiz-option" data-correct="false">Borrowing</button>
+        <button class="quiz-option" data-correct="false">Investing</button>
         <button class="quiz-option" data-correct="true">Gambling</button>
       </div>
       <div class="quiz-feedback"></div>
@@ -106,6 +341,187 @@
       });
     });
   });
+
+  // --- Typed answers: saved in this browser so they survive a reload ---
+  const ANSWER_KEY = 'mintly:lesson-1:answers';
+  function loadAnswers() {
+    try { return JSON.parse(localStorage.getItem(ANSWER_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveAnswer(key, value) {
+    const answers = loadAnswers();
+    answers[key] = value;
+    try { localStorage.setItem(ANSWER_KEY, JSON.stringify(answers)); } catch (e) {}
+  }
+
+  const warmupEcho = document.getElementById('warmup-echo');
+  function renderWarmupEcho() {
+    const text = (loadAnswers().warmup || '').trim();
+    if (text) {
+      warmupEcho.textContent = text;
+      warmupEcho.classList.add('filled');
+    }
+  }
+
+  const saved = loadAnswers();
+  document.querySelectorAll('[data-save]').forEach((box) => {
+    const key = box.dataset.save;
+    if (saved[key]) box.value = saved[key];
+    box.addEventListener('input', () => {
+      saveAnswer(key, box.value);
+      if (key === 'warmup') renderWarmupEcho();
+    });
+  });
+  renderWarmupEcho();
+
+  document.querySelectorAll('[data-lock]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = document.getElementById(btn.dataset.lock);
+      const status = document.getElementById('warmup-status');
+      if (box.value.trim().length < 10) {
+        status.textContent = 'Write a little more first, even one full sentence.';
+        return;
+      }
+      saveAnswer(box.dataset.save, box.value);
+      renderWarmupEcho();
+      status.textContent = 'Saved. You\'ll see this again at the end of the lesson.';
+    });
+  });
+
+  // "Compare with a sample answer": only after the student has written something.
+  document.querySelectorAll('[data-reveal]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = document.getElementById(btn.dataset.needs);
+      const status = document.getElementById(btn.dataset.needs + '-status');
+      if (box.value.trim().length < 20) {
+        status.textContent = 'Write your own answer first, then compare.';
+        box.focus();
+        return;
+      }
+      status.textContent = '';
+      document.getElementById(btn.dataset.reveal).hidden = false;
+    });
+  });
+
+  // --- Matching: tap a word, then its definition (or the other way round) ---
+  const game = document.getElementById('match-game');
+  const matchStatus = document.getElementById('match-status');
+  let picked = null;
+  let matched = 0;
+  const keyOf = (el) => el.dataset.term || el.dataset.def;
+
+  game.querySelectorAll('.match-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (!picked || picked.classList.contains('def') === item.classList.contains('def')) {
+        if (picked) picked.classList.remove('selected');
+        picked = item;
+        item.classList.add('selected');
+        return;
+      }
+      const first = picked;
+      picked = null;
+      first.classList.remove('selected');
+      if (keyOf(first) === keyOf(item)) {
+        [first, item].forEach((el) => {
+          el.classList.add('matched');
+          el.setAttribute('aria-disabled', 'true');
+        });
+        matched += 1;
+        const term = game.querySelector('[data-term="' + keyOf(item) + '"]').textContent;
+        matchStatus.textContent = matched === 6
+          ? 'All 6 matched! You know the core vocabulary.'
+          : 'Yes, that\'s ' + term + '. ' + matched + ' of 6 matched.';
+      } else {
+        [first, item].forEach((el) => {
+          el.classList.add('wrong');
+          setTimeout(() => el.classList.remove('wrong'), 600);
+        });
+        matchStatus.textContent = 'Not quite. Try a different pair. ' + matched + ' of 6 matched.';
+      }
+    });
+  });
+
+  // --- Fill in the blank: hint after one miss, answer after three ---
+  document.querySelectorAll('.blank-row').forEach((row) => {
+    const input = row.querySelector('.blank-input');
+    const status = row.querySelector('.blank-status');
+    const answers = row.dataset.answers.split('|');
+    let misses = 0;
+    function check() {
+      const guess = input.value.trim().toLowerCase();
+      if (!guess) return;
+      if (answers.includes(guess)) {
+        row.classList.add('right');
+        row.classList.remove('miss');
+        input.readOnly = true;
+        status.textContent = 'Correct';
+        return;
+      }
+      misses += 1;
+      row.classList.add('miss');
+      if (misses >= 3) {
+        status.textContent = 'The answer is "' + answers[0] + '".';
+      } else {
+        status.textContent = 'Not quite. Hint: it starts with "' + answers[0][0] + '".';
+      }
+    }
+    row.querySelector('button').addEventListener('click', check);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') check();
+    });
+  });
+
+  // --- Birthday money split ---
+  const splitInputs = ['split-save', 'split-spend', 'split-give'].map((id) => document.getElementById(id));
+  const splitTotal = document.getElementById('split-total');
+  const splitFeedback = document.getElementById('split-feedback');
+  function money(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+  function updateSplit() {
+    const [save, spend, give] = splitInputs.map((el) => Math.max(0, Number(el.value) || 0));
+    const total = save + spend + give;
+    splitTotal.textContent = 'Total: ' + money(total) + ' of $50';
+    splitTotal.classList.toggle('over', total > 50);
+    splitTotal.classList.toggle('done', total === 50);
+    if (total < 50) {
+      splitFeedback.textContent = 'You still have ' + money(50 - total) + ' without a job. Give every dollar a job.';
+    } else if (total > 50) {
+      splitFeedback.textContent = 'That\'s ' + money(total - 50) + ' more than you have. Take some out.';
+    } else if (save === 0) {
+      splitFeedback.textContent = 'Every dollar has a job, but nothing goes to savings. Even $5 or $10 builds the habit of paying yourself first.';
+    } else if (save >= 10) {
+      splitFeedback.textContent = 'Nice. You\'re saving ' + Math.round(save / 50 * 100) + '%. That\'s paying yourself first, and you still have ' + money(spend) + ' to enjoy.';
+    } else {
+      splitFeedback.textContent = 'Good start. You\'re saving ' + Math.round(save / 50 * 100) + '%. Many people aim for about 20%, which would be $10 here.';
+    }
+  }
+  splitInputs.forEach((el) => el.addEventListener('input', updateSplit));
+  updateSplit();
+
+  // --- Compound growth calculator (monthly deposits, monthly compounding) ---
+  const calcAmount = document.getElementById('calc-amount');
+  const calcYears = document.getElementById('calc-years');
+  const calcRate = document.getElementById('calc-rate');
+  function updateCalc() {
+    const amount = Math.max(0, Number(calcAmount.value) || 0);
+    const years = Math.min(60, Math.max(0, Number(calcYears.value) || 0));
+    const rate = Number(calcRate.value);
+    const months = years * 12;
+    const putIn = amount * months;
+    const r = rate / 12;
+    const grows = r === 0 ? putIn : amount * ((Math.pow(1 + r, months) - 1) / r);
+    document.getElementById('calc-in').textContent = money(putIn);
+    document.getElementById('calc-out').textContent = money(grows);
+    const note = document.getElementById('calc-note');
+    if (rate === 0) {
+      note.textContent = 'Under the mattress, money never grows. Rising prices can even make it worth less over time.';
+    } else {
+      note.textContent = money(grows - putIn) + ' of that is growth you didn\'t have to put in yourself. Try changing the years to see how much time matters.';
+    }
+  }
+  [calcAmount, calcYears, calcRate].forEach((el) => el.addEventListener('input', updateCalc));
+  updateCalc();
 
   const completeBtn = document.getElementById('complete-btn');
   function renderComplete() {

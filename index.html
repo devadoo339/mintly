@@ -6,7 +6,11 @@
 <title>Mintly — Financial literacy for teens</title>
 <meta name="description" content="Mintly teaches teens ages 13-18 how money, investing, and financial literacy actually work.">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>try{var t=localStorage.getItem("mintly:theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 
@@ -14,11 +18,12 @@
   <div class="wrap navbar">
     <a class="brand" href="index.html">mintly<span class="dot">.</span></a>
     <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="lessons/lesson-1.html">Learn</a></li>
       <li><a href="lessons/explore.html">Explore</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="parents.html">For Parents</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="mintly.demo.html?from=site">Demo</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-auth" id="nav-auth"></div>
@@ -35,7 +40,7 @@
         <p class="lead">Mintly helps kids learn financial literacy through short lessons, safe investing simulations, goals, and hands-on challenges built for curious young minds.</p>
         <div class="hero-actions">
           <a class="btn" href="pricing.html">Start learning</a>
-          <a class="btn btn-secondary" href="about.html#how-it-works">See how it works</a>
+          <a class="btn btn-secondary" href="mintly.demo.html?from=site">Try the demo</a>
         </div>
         <p class="hero-note">Designed for kids. Built with parents in mind. No real-money investing required.</p>
       </div>
@@ -79,6 +84,122 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap pricing-hero" id="about">
+    <div class="eyebrow-mint">About Mintly</div>
+    <h1>Money skills, taught the way kids actually learn</h1>
+    <p>Mintly exists because most people learn about money the hard way — as adults, after the expensive mistakes. We wanted a place for teens to build that understanding early, without any real money on the line.</p>
+  </div>
+
+  <section class="wrap">
+    <div class="section-eyebrow">Learn by doing</div>
+    <h2 class="section-heading">Financial literacy that feels like an app, not a textbook.</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon bg-mint"></div>
+        <h3>Understand the basics</h3>
+        <p>Saving, budgeting, interest, risk, diversification, and investing explained in simple language.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon bg-gold"></div>
+        <h3>Practice safely</h3>
+        <p>Use simulated portfolios and guided scenarios to see how choices can play out over time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon bg-blue"></div>
+        <h3>Build confident habits</h3>
+        <p>Set goals, complete money missions, and track progress with positive, age-appropriate feedback.</p>
+      </div>
+    </div>
+
+    <div class="how-card" id="how-it-works">
+      <div class="how-copy">
+        <div class="section-eyebrow">How Mintly works</div>
+        <h2>Learn. Practice. Grow.</h2>
+        <p>Kids build real financial understanding through guided lessons and simulated investing experiences, with an experience designed to stay age-appropriate.</p>
+      </div>
+      <div class="step-list">
+        <div class="step-row"><span class="step-num">1</span><span class="step-text">Learn a money concept</span></div>
+        <div class="step-row"><span class="step-num">2</span><span class="step-text">Try it in a safe simulation</span></div>
+        <div class="step-row"><span class="step-num">3</span><span class="step-text">Build habits and confidence</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Small lessons. <span class="accent">Big money confidence.</span></h2>
+    <a class="btn" href="pricing.html">Join Mintly</a>
+  </div>
+
+  <section class="poster-section">
+    <div class="wrap duo">
+      <div class="poster-card">
+        <div class="label-mint">Purpose</div>
+        <h2>Don't just learn about money. <span class="accent-dark">Learn how to use it.</span></h2>
+        <p>Teens practice real money decisions before real money is on the line. Short lessons, then five steps: choose a topic, research it, question it, make your case, and reflect.</p>
+      </div>
+      <div class="poster-card dark">
+        <div class="label-mint label-peach">The problem</div>
+        <h2>Kids meet money long before anyone teaches them about it.</h2>
+        <div class="quote-bubble">“Should I buy crypto?”</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="poster-section" id="experience">
+    <div class="wrap">
+      <div class="label-mint">The Mintly experience</div>
+      <h2 class="section-title">Five steps you can try right here.</h2>
+      <p class="section-sub">Pick something you're curious about, then work through it the way a careful investor would.</p>
+      <ol class="steps-five">
+        <li class="step-card">
+          <div class="step-num">1</div>
+          <h3>Choose</h3>
+          <p>Pick what you're curious about: sneakers, trading cards, crypto and more.</p>
+        </li>
+        <li class="step-card">
+          <div class="step-num">2</div>
+          <h3>Research</h3>
+          <p>Dig into why it has value, who is buying, and what could go wrong.</p>
+        </li>
+        <li class="step-card">
+          <div class="step-num">3</div>
+          <h3>Ask Leaf</h3>
+          <p>Question it with Leaf, who answers your questions with better questions.</p>
+        </li>
+        <li class="step-card">
+          <div class="step-num">4</div>
+          <h3>Make your case</h3>
+          <p>Would you buy it? Write your reason and name the biggest risk.</p>
+        </li>
+        <li class="step-card">
+          <div class="step-num">5</div>
+          <h3>Simulate and reflect</h3>
+          <p>Watch a practice portfolio with no real money, then reflect on what surprised you.</p>
+        </li>
+      </ol>
+      <a class="btn" href="mintly.demo.html?from=site">Try the five steps</a>
+    </div>
+  </section>
+
+  <section class="poster-section">
+    <div class="wrap">
+      <div class="label-mint">What's next</div>
+      <h2 class="section-title">Where Mintly is going</h2>
+      <div class="next-flow">
+        <span class="pill">Learn</span><span class="arrow" aria-hidden="true">→</span>
+        <span class="pill grey">Simulate</span><span class="arrow" aria-hidden="true">→</span>
+        <span class="pill mint">Practice</span><span class="arrow" aria-hidden="true">→</span>
+        <span class="pill dark">Act</span>
+      </div>
+      <div class="chain" style="margin-bottom:18px"><b>Educator</b>→<b>Guide</b>→<b>Financial platform</b></div>
+      <p class="section-sub"><strong style="color:var(--ink)">Build on it:</strong> the five steps work in any classroom, on any topic students are curious about.</p>
+      <div class="site-band">
+        <span>Mintly doesn't teach young people what to think about money. It teaches them how to think.</span>
+        <a href="mintly.demo.html?from=site">Try it anytime</a>
       </div>
     </div>
   </section>
