@@ -406,8 +406,8 @@ const PAL=[["Graphite",["#151515","#151515","#E9E9E6","#fff"],["#F5F5F4","#F5F5F
 const BGS=[["Stone",["#F5F5F4","#fff"],["#0E0E0E","#181817"]],["White",["#fff","#F5F5F4"],["#000","#141414"]],["Silver",["#E8E8EA","#F7F7F8"],["#17171A","#202024"]]];
 const FONTS=[["Sora + Inter","'Sora',system-ui,sans-serif","'Inter',system-ui,sans-serif"],["Fraunces + Inter","'Fraunces',Georgia,serif","'Inter',system-ui,sans-serif"],["Space Grotesk","'Space Grotesk',system-ui,sans-serif","'Space Grotesk',system-ui,sans-serif"],["System","system-ui,-apple-system,'Segoe UI',sans-serif","system-ui,-apple-system,'Segoe UI',sans-serif"]];
 let C={a:0,b:0,f:0};
-// Visitors coming from the Mintly website get light mode.
-if(new URLSearchParams(location.search).get("from")=="site")document.documentElement.dataset.theme="light";
+// Visitors coming from the Mintly website keep the site's theme: the one they picked there, otherwise their system setting.
+if(new URLSearchParams(location.search).get("from")=="site"){let t=null;try{t=JSON.parse(localStorage.getItem("mintly:theme"))}catch(e){}if(t=="light"||t=="dark")document.documentElement.dataset.theme=t}
 function apply(){const st=document.documentElement.style,k=["--acc","--acct","--accsoft","--onacc","--bg","--panel","--fh","--fb"];
  if(!C.a&&!C.b&&!C.f){k.forEach(x=>st.removeProperty(x))}else{const d=isDark()?2:1,p=PAL[C.a][d],b=BGS[C.b][d];["--acc","--acct","--accsoft","--onacc"].forEach((x,j)=>st.setProperty(x,p[j]));st.setProperty("--bg",b[0]);st.setProperty("--panel",b[1]);st.setProperty("--fh",FONTS[C.f][1]);st.setProperty("--fb",FONTS[C.f][2])}
  const color=!C.a&&!isDark();if(color){st.setProperty("--accsoft","#A8DDC0");st.setProperty("--gain","#2F7D58");if(!C.b)st.setProperty("--bg","#fff");document.documentElement.dataset.pal="color"}else{st.removeProperty("--gain");delete document.documentElement.dataset.pal}
