@@ -16,12 +16,13 @@
   <div class="wrap navbar">
     <a class="brand" href="../index.html">mintly<span class="dot">.</span></a>
     <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
       <li><a href="lesson-1.html">Learn</a></li>
       <li><a href="explore.html">Explore</a></li>
       <li><a href="../index.html#simulate">Simulate</a></li>
       <li><a href="../pricing.html">Pricing</a></li>
       <li><a href="../parents.html">For Parents</a></li>
-      <li><a href="../about.html">About</a></li>
+      <li><a href="../mintly.demo.html?from=site">Demo</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-auth" id="nav-auth"></div>
@@ -42,11 +43,11 @@
       <span class="title">What is financial literacy?</span>
       <span class="go" id="go-lesson-1">Start →</span>
     </a>
-    <div class="lesson-row locked">
+    <a class="lesson-row" href="lesson-2.html" id="row-lesson-2">
       <span class="num">2</span>
       <span class="title">Needs vs. wants: building a simple budget</span>
-      <span class="badge-soon">Soon</span>
-    </div>
+      <span class="go" id="go-lesson-2">Start →</span>
+    </a>
     <div class="lesson-row locked">
       <span class="num">3</span>
       <span class="title">Saving and how compound interest works</span>
@@ -76,10 +77,11 @@
 <script src="../script.js"></script>
 <script>
   Mintly.requireSubscription();
-  const done = Mintly.isLessonComplete("lesson-1");
-  if (done) {
-    document.getElementById("go-lesson-1").textContent = "✓ Complete — review";
-  }
+  ["lesson-1", "lesson-2"].forEach((id) => {
+    if (Mintly.isLessonComplete(id)) {
+      document.getElementById("go-" + id).textContent = "✓ Complete — review";
+    }
+  });
   document.getElementById("course-progress").textContent =
     Mintly.completedCount() + " of " + Mintly.LESSON_IDS.length + " complete";
 </script>

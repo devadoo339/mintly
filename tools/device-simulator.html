@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Device Simulator</title>
+<style>
+  :root { --bg:#ECECEA; --ink:#151515; --mute:#6A6A66; --panel:#fff; --line:#DADAD6; --body:#1C1C1E; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0E0E0E; --ink:#F5F5F4; --mute:#9A9A95; --panel:#181817; --line:#2A2A28; --body:#3A3A3C; } }
+  * { box-sizing:border-box; margin:0 }
+  html, body { height:100% }
+  body { background:var(--bg); color:var(--ink); font:500 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; display:flex; flex-direction:column; align-items:center; overflow:hidden }
+  header { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; padding:14px 16px; width:100% }
+  h1 { font-size:15px; font-weight:700; margin-right:8px }
+  select, button { font:inherit; color:var(--ink); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:7px 14px; cursor:pointer }
+  button:hover, select:hover { border-color:var(--mute) }
+  .meta { color:var(--mute); font-size:12px; font-variant-numeric:tabular-nums }
+  main { flex:1; width:100%; display:grid; place-items:center; min-height:0; padding-bottom:16px }
+  .stage { position:relative }
+  .device { position:absolute; left:0; top:0; transform-origin:0 0; background:var(--body); box-shadow:0 0 0 2px #555 inset, 0 40px 80px -30px rgba(0,0,0,.45) }
+  .screen { position:relative; overflow:hidden; background:#000; display:flex; flex-direction:column }
+  .status { flex:none; background:var(--body) }
+  iframe { display:block; border:0; width:100%; flex:1; background:#fff }
+  .island { position:absolute; top:11px; left:50%; translate:-50% 0; width:124px; height:36px; border-radius:20px; background:#000; z-index:2; pointer-events:none }
+  .hinge { position:absolute; top:0; bottom:0; left:50%; width:1px; background:rgba(0,0,0,.08); z-index:2; pointer-events:none }
+</style>
+</head>
+<body>
+<header>
+  <h1>Device Simulator</h1>
+  <select id="dev" aria-label="Device"></select>
+  <select id="page" aria-label="Page"></select>
+  <button id="rot" type="button">Rotate</button>
+  <button id="reload" type="button">Reload</button>
+  <span class="meta" id="meta"></span>
+</header>
+<main><div class="stage" id="stage"><div class="device" id="device"><div class="screen" id="screen"><div class="island" id="island"></div><div class="hinge" id="hinge"></div><div class="status" id="status"></div><iframe id="f" title="Site preview"></iframe></div></div></div></main>
+<script>
+// Open via the dev server (npm start → http://localhost:8000/tools/device-simulator.html).
+const BASE = location.protocol === "file:" ? "http://localhost:8000/" : location.origin + "/";
+
+// [name, CSS width, CSS height (portrait), frame]
+// iPhone 18 isn't released yet; its size is the reported 6.3" panel. iPhone Duo sizes are
+// derived from its reported panels (1398×2034 outer, 1878×2670 inner) at 3×, so treat them as estimates.
+const DEVICES = [
+  ["iPhone 18 Pro", 402, 874, "phone"],
+  ["iPhone 18 Pro Max", 440, 956, "phone"],
+  ["iPhone 18 (expected)", 402, 874, "phone"],
+  ["iPhone Duo, folded (est.)", 466, 678, "phone"],
+  ["iPhone Duo, unfolded (est.)", 626, 890, "fold"],
+  ["iPad mini", 744, 1133, "ipad"],
+  ["iPad / iPad Air 11\"", 820, 1180, "ipad"],
+  ["iPad Pro 11\"", 834, 1210, "ipad"],
+  ["iPad Air 13\"", 1024, 1366, "ipad"],
+  ["iPad Pro 13\"", 1032, 1376, "ipad"],
+];
+// bezel, outer radius, screen radius, status bar height (Safari keeps pages below it), dynamic island
+const FRAMES = {
+  phone: { pad: 14, r: 62, sr: 48, bar: 54, island: true },
+  fold: { pad: 12, r: 40, sr: 26, bar: 40 },
+  ipad: { pad: 22, r: 42, sr: 20, bar: 24 },
+};
+const PAGES = ["index.html", "mintly.demo.html", "parents.html", "pricing.html", "signin.html",
+  "lessons/explore.html", "lessons/financial-literacy.html", "lessons/cryptocurrencies.html",
+  "lessons/collectables.html", "lessons/lesson-1.html", "lessons/lesson-2.html"];
+
+const $ = (id) => document.getElementById(id);
+let land = false;
+const saved = (k, d) => { try { return localStorage.getItem(k) ?? d } catch { return d } };
+const save = (k, v) => { try { localStorage.setItem(k, v) } catch {} };
+
+DEVICES.forEach((d, i) => $("dev").add(new Option(`${d[0]} (${d[1]}×${d[2]})`, i)));
+PAGES.forEach((p) => $("page").add(new Option(p, p)));
+$("dev").value = DEVICES[saved("sim:dev", 0)] ? saved("sim:dev", 0) : 0;
+$("page").value = saved("sim:page", "index.html");
+
+function layout() {
+  const [, w0, h0, kind] = DEVICES[$("dev").value], f = FRAMES[kind];
+  const w = land ? h0 : w0, h = land ? w0 : h0, fw = w + 2 * f.pad, fh = h + 2 * f.pad;
+  const dv = $("device");
+  dv.style.padding = f.pad + "px";
+  dv.style.borderRadius = f.r + "px";
+  $("screen").style.borderRadius = f.sr + "px";
+  $("screen").style.width = w + "px";
+  $("screen").style.height = h + "px";
+  $("island").style.display = f.island && !land ? "" : "none";
+  // iPhones hide the status bar in landscape
+  $("status").style.height = (land && kind !== "ipad" ? 0 : f.bar) + "px";
+  // the fold runs top to bottom when held upright, side to side when rotated
+  $("hinge").style.display = kind === "fold" ? "" : "none";
+  Object.assign($("hinge").style, land ? { left: 0, right: 0, top: "50%", bottom: "auto", width: "auto", height: "1px" }
+                                        : { left: "50%", right: "auto", top: 0, bottom: 0, width: "1px", height: "auto" });
+  const box = document.querySelector("main").getBoundingClientRect();
+  const s = Math.min(1, (box.width - 32) / fw, (box.height - 16) / fh);
+  dv.style.transform = `scale(${s})`;
+  $("stage").style.width = fw * s + "px";
+  $("stage").style.height = fh * s + "px";
+  $("meta").textContent = `${w}×${h} CSS px${s < 1 ? ` · shown at ${Math.round(s * 100)}%` : ""}`;
+}
+function load() { $("f").src = BASE + $("page").value; save("sim:page", $("page").value) }
+$("dev").onchange = () => { save("sim:dev", $("dev").value); layout() };
+$("page").onchange = load;
+$("rot").onclick = () => { land = !land; layout() };
+$("reload").onclick = () => { try { $("f").contentWindow.location.reload() } catch { load() } };
+addEventListener("resize", layout);
+layout(); load();
+</script>
+</body>
+</html>

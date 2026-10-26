@@ -152,6 +152,26 @@ const Mintly = (() => {
     return readJSON(INTEREST_PREFIX + progressScope(), null);
   }
 
+  // Phones hide .nav-links, so add a menu button that shows them as a dropdown.
+  function setupMobileNav() {
+    const nav = document.querySelector(".navbar");
+    const links = nav && nav.querySelector(".nav-links");
+    const right = nav && nav.querySelector(".nav-right");
+    if (!links || !right) return;
+    links.id = links.id || "nav-links";
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "nav-toggle";
+    btn.setAttribute("aria-label", "Menu");
+    btn.setAttribute("aria-controls", links.id);
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = "<span></span><span></span><span></span>";
+    btn.addEventListener("click", () => {
+      btn.setAttribute("aria-expanded", String(nav.classList.toggle("nav-open")));
+    });
+    right.appendChild(btn);
+  }
+
   function requireSubscription() {
     if (!hasActivePlan()) {
       window.location.href = rootPath("pricing.html");
@@ -174,9 +194,11 @@ const Mintly = (() => {
     hasActivePlan,
     requireSubscription,
     renderNavAuth,
+    setupMobileNav,
   };
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
   Mintly.renderNavAuth("nav-auth");
+  Mintly.setupMobileNav();
 });

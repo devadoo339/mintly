@@ -19,12 +19,13 @@
   <div class="wrap navbar">
     <a class="brand" href="index.html">mintly<span class="dot">.</span></a>
     <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="lessons/lesson-1.html">Learn</a></li>
       <li><a href="lessons/explore.html">Explore</a></li>
       <li><a href="index.html#simulate">Simulate</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="parents.html">For Parents</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="mintly.demo.html?from=site">Demo</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-auth" id="nav-auth"></div>
@@ -37,7 +38,7 @@
 <p class="sub">Mintly turns financial learning into decisions you can actually practice.</p>
 <button class="btn" onclick="start()">Try the Demo</button> <button class="btn ghost" onclick="go('journey')">How Mintly Works</button>
 <div class="chain"><b>Learn</b>→<b>Research</b>→<b>Ask</b>→<b>Think</b>→<b>Simulate</b>→<b>Score</b></div></div>
-<div class="card hv"><div class="sc"><b>NVDA</b><span class="up">+42%</span></div><div class="price">$182.40</div><div id="hv"></div><div class="rng" id="rg"><button class="" onclick="hr(this,'1D')">1D</button><button class="" onclick="hr(this,'1W')">1W</button><button class="on" onclick="hr(this,'1M')">1M</button><button class="" onclick="hr(this,'1Y')">1Y</button></div><div class="chips" style="margin:18px 0 0"><button class="chip" data-m="What would need to be true for this to keep growing?" onclick="pk(this)">Buy</button><button class="chip" data-m="What information would change your mind?" onclick="pk(this)">Wait</button><button class="chip" data-m="What's the strongest reason not to?" onclick="pk(this)">Pass</button></div><p class="fb">Tap one and Leaf will push your thinking.</p><p class="mute" style="font-size:12px">Simulation. No real money. Mock data.</p></div></div>
+<div class="card hv"><div class="sc"><b>NVDA</b><span class="up" id="hchg">+42%</span></div><div class="price" id="hpx">$182.40</div><div id="hv"></div><div class="rng" id="rg"><button class="" onclick="hr(this,'1D')">1D</button><button class="" onclick="hr(this,'1W')">1W</button><button class="on" onclick="hr(this,'1M')">1M</button><button class="" onclick="hr(this,'1Y')">1Y</button></div><div class="chips" style="margin:18px 0 0"><button class="chip" data-m="What would need to be true for this to keep growing?" onclick="pk(this)">Buy</button><button class="chip" data-m="What information would change your mind?" onclick="pk(this)">Wait</button><button class="chip" data-m="What's the strongest reason not to?" onclick="pk(this)">Pass</button></div><p class="fb">Tap one and Leaf will push your thinking.</p><p class="mute" style="font-size:12px" id="hsrc">Simulation. No real money. Mock data.</p></div></div>
 
 <section id="prob" class="alt" style="padding:0"><div class="pw" id="pa" style="height:340vh"><div class="pp " style=""><div class="wrap" style="width:100%"><div id="ptx"></div><p id="tpn" class="mute" style="min-height:28px;font-size:17px">Tap a topic to see what young people hear about it.</p></div></div></div></section>
 
