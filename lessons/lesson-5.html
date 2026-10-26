@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro to investing: stocks, risk and diversification — Mintly</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script src="../theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a class="brand" href="../index.html">mintly<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="lesson-1.html">Learn</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="../index.html#simulate">Simulate</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../parents.html">For Parents</a></li>
+      <li><a href="../mintly.demo.html?from=site">Demo</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article class="lesson-body">
+    <div class="eyebrow">Financial Literacy · Lesson 5</div>
+    <h1>Intro to investing: stocks, risk and diversification</h1>
+    <p class="lesson-meta">About 15 minutes · 5 activities · Your typed answers are saved in this browser</p>
+
+    <p>Everyone at school is talking about a stock that "can't stop going up." Should you buy it? Before you can answer, you need to know what a stock actually is, why its price moves, and how investors protect themselves from the bad years. That's what this lesson is about. By the end, you'll know how to make a Buy, Sell or Wait decision the way Mintly practices decisions: with research and reasons, not hype.</p>
+
+    <div class="activity" id="warmup">
+      <div class="activity-label">Warm-up · Typing</div>
+      <h3>Would you buy it?</h3>
+      <p>A friend says a company's stock went up 40% this month and everyone's buying. What would you want to know before deciding? Write at least one question.</p>
+      <label class="sr-only" for="warmup-text">What you would want to know first</label>
+      <textarea class="write-box" id="warmup-text" data-save="warmup" rows="3" placeholder="Before I decided, I'd want to know..."></textarea>
+      <div class="activity-actions">
+        <button class="btn" type="button" data-lock="warmup-text">Save my answer</button>
+        <span class="activity-status" id="warmup-status" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <h2>Saving vs. investing</h2>
+    <p>In Lesson 4 your money sat in a savings account: safe, easy to reach, growing slowly. <strong>Investing</strong> means putting money into something that could grow faster, like part of a company, while accepting that it could also lose value. That trade-off is called <strong>risk</strong>. In general, a chance of higher reward comes with a higher chance of loss.</p>
+    <p>That's why investors use a simple rule: money you'll need soon, like your emergency fund or next month's bus pass, stays in savings. Only money you won't need for years is a candidate for investing, because it has time to recover from bad years.</p>
+
+    <h2>What is a stock?</h2>
+    <div class="definition-card">
+      <div class="definition-term">Stock <span>(noun)</span></div>
+      <p>A small piece of <strong>ownership</strong> in a company. Each piece is called a <strong>share</strong>. If you own a share, you own a tiny slice of the company.</p>
+    </div>
+    <p>Companies sell shares to raise money to grow. After that, people buy and sell shares with each other on a <strong>stock exchange</strong>. Investors can make money from a stock in two ways:</p>
+    <ul>
+      <li><strong>The price goes up.</strong> If you buy a share at $50 and later sell it at $60, your <strong>return</strong> is $10, or 20%.</li>
+      <li><strong>Dividends.</strong> Some companies pay part of their profits to shareholders, usually every few months.</li>
+    </ul>
+    <p>And there's one way to lose: the price goes down. A share bought at $50 could be worth $30 a year later, or, if the company fails, close to nothing.</p>
+
+    <h2>Why do prices move?</h2>
+    <p>A stock's price is just what buyers are willing to pay right now. It moves when people change their minds about the company's future. Three things move it most:</p>
+    <ul>
+      <li><strong>Earnings:</strong> how much profit the company makes. Companies report this every three months.</li>
+      <li><strong>Expectations:</strong> what investors <em>think</em> the company will earn later. A stock can fall even after good news if people expected even better news.</li>
+      <li><strong>News and hype:</strong> a new product, a lawsuit, a viral post. Hype can push a price far above what the company earns, and it can fade just as fast.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Leaf asks</strong>
+      If a stock already went up 40% this month, what does the price now "expect" the company to do next? And what happens to the price if the company only does well, not amazing?
+    </div>
+
+    <h2>Diversification: don't bet it all on one company</h2>
+    <p>No one, not even professionals, can reliably predict which single company will do well next year. So investors spread their money across many companies, industries and types of investments. This is called <strong>diversification</strong>. If one company has a terrible year, it's only a small part of what you own.</p>
+    <p>One easy way to diversify is a <strong>fund</strong>, which pools money from many people to buy many investments at once. An <strong>index fund</strong> holds every company in a list (an index), such as the 500 large US companies in the S&amp;P 500, so one share of the fund gives you a small piece of all of them.</p>
+
+    <div class="activity">
+      <div class="activity-label">Activity · Simulation</div>
+      <h3>What happens when one company crashes?</h3>
+      <p>You have $100 of practice money, split equally across some companies. One of them has a terrible year and falls 50%. Change how many companies you own and watch what happens to your $100.</p>
+      <div class="calc-grid">
+        <label class="split-field">Number of companies
+          <select id="div-count">
+            <option value="1" selected>1 company</option>
+            <option value="2">2 companies</option>
+            <option value="5">5 companies</option>
+            <option value="10">10 companies</option>
+            <option value="50">50 companies</option>
+          </select>
+        </label>
+        <label class="split-field">The bad company falls
+          <select id="div-drop">
+            <option value="0.5" selected>50%</option>
+            <option value="0.9">90%</option>
+            <option value="1">100% (it fails)</option>
+          </select>
+        </label>
+      </div>
+      <div class="calc-results">
+        <div><span>You lose</span><b id="div-loss">$0</b></div>
+        <div class="grow"><span>You still have</span><b id="div-left">$0</b></div>
+      </div>
+      <p class="calc-note" id="div-note"></p>
+      <p class="fine-print">Assumes the other companies stay flat. Diversification lowers the damage from one bad company; it can't stop the whole market from falling.</p>
+    </div>
+
+    <h2>Making a Buy, Sell or Wait decision</h2>
+    <p>Investors who own a stock decide whether to <strong>Buy</strong> more, <strong>Sell</strong> or <strong>Wait</strong>. In the Mintly simulation you practice the same thinking: you research a real company, ask Leaf questions, and choose <strong>Buy</strong>, <strong>Wait</strong> or <strong>Pass</strong> (pass means you decide not to buy). Then you get a <strong>Decision Score</strong>. The score isn't about whether the price went up, because nobody controls that. It's about how well you decided: your research, your evidence, your awareness of risk and your reasoning.</p>
+    <ul>
+      <li><strong>Research both sides.</strong> Read at least one source that disagrees with you.</li>
+      <li><strong>Name your evidence.</strong> "Revenue grew a lot last year" is evidence; "everyone's buying it" is not.</li>
+      <li><strong>Say what could go wrong.</strong> And how much it would matter.</li>
+      <li><strong>Decide, then reflect.</strong> <em>Wait</em> is a real decision too. "I don't know enough yet" is often the smartest answer.</li>
+    </ul>
+    <div class="callout">
+      <strong>Practice, not real money</strong>
+      Everything in Mintly uses practice money. Nothing here is financial advice, and Mintly is not a brokerage. In most places you need to be 18, or have a parent or guardian open a custodial account with you, to invest real money.
+    </div>
+  </article>
+
+  <section class="quiz">
+    <div class="quiz-box">
+      <h2>Try it: Buy, Sell or Wait?</h2>
+
+      <div class="quiz-question">A classmate says a stock "can't lose" because it tripled this month. You haven't read anything about the company. In your practice portfolio, what's the best first move?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Buy now before it goes higher</button>
+        <button class="quiz-option" data-correct="true">Wait, and research what the company actually earns</button>
+        <button class="quiz-option" data-correct="false">Sell everything else to buy more of it</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">You bought a practice share because the company was growing fast. Its latest report shows sales are now shrinking and debt is rising, and you can't find a reason it will turn around. Your reasons for owning it are gone.</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Buy more to "average down" without checking anything</button>
+        <button class="quiz-option" data-correct="true">Sell, or at least seriously reconsider, because your reasons changed</button>
+        <button class="quiz-option" data-correct="false">Ignore the report</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">You've read three articles that disagree about a company, and you can't yet explain how it makes money.</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="true">Wait. You don't understand it well enough yet</button>
+        <button class="quiz-option" data-correct="false">Buy, since articles disagree on everything</button>
+        <button class="quiz-option" data-correct="false">Sell short to be safe</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+  </section>
+
+  <article class="lesson-body lesson-cont">
+    <div class="activity">
+      <div class="activity-label">Activity · Typing</div>
+      <h3>Fill in the missing word</h3>
+      <p>Type the word that completes each sentence, then press Enter or Check.</p>
+      <div class="blank-list">
+        <div class="blank-row" data-answers="share|stock">
+          <label for="b1">A small piece of ownership in a company is called a <input id="b1" class="blank-input" autocomplete="off">.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="diversification">
+          <label for="b2">Spreading your money across many investments is called <input id="b2" class="blank-input" autocomplete="off">.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="dividend">
+          <label for="b3">Part of a company's profit paid out to shareholders is a <input id="b3" class="blank-input" autocomplete="off">.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="risk">
+          <label for="b4">The chance that an investment loses value is called <input id="b4" class="blank-input" autocomplete="off">.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+        <div class="blank-row" data-answers="index">
+          <label for="b5">A fund that holds every company in a list like the S&amp;P 500 is an <input id="b5" class="blank-input" autocomplete="off"> fund.</label>
+          <button class="btn-small" type="button">Check</button>
+          <span class="blank-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity" id="final">
+      <div class="activity-label">Wrap-up · Typing</div>
+      <h3>Make your case</h3>
+      <p>At the start, you wrote what you'd want to know:</p>
+      <blockquote class="your-answer" id="warmup-echo">You haven't written a warm-up answer yet. Scroll up to try it.</blockquote>
+      <p>Now finish this: "Before I Buy, Sell or Wait on any stock, I will..." Use at least two ideas from this lesson.</p>
+      <label class="sr-only" for="final-text">Your decision checklist</label>
+      <textarea class="write-box" id="final-text" data-save="final" rows="4" placeholder="Before I Buy, Sell or Wait on any stock, I will..."></textarea>
+      <div class="activity-actions">
+        <button class="btn" type="button" data-reveal="final-sample" data-needs="final-text">Compare with a sample answer</button>
+        <span class="activity-status" id="final-text-status" aria-live="polite"></span>
+      </div>
+      <div class="sample-answer" id="final-sample" hidden>
+        <strong>One strong answer:</strong> "Before I Buy, Sell or Wait on any stock, I will find out how the company makes money and whether its earnings are growing, read at least one source that disagrees with me, and write down what could go wrong. I'll only invest money I won't need for years, and I'll spread it across many companies instead of betting on one."
+        <span class="sample-tip">Did yours include research, the case against, risk, time horizon or diversification?</span>
+      </div>
+    </div>
+
+    <h2>Key words from this lesson</h2>
+    <dl class="vocab-list">
+      <div><dt>Investing</dt><dd>Putting money into something that could grow, with a risk of loss.</dd></div>
+      <div><dt>Stock / share</dt><dd>Ownership in a company / one piece of that ownership.</dd></div>
+      <div><dt>Return</dt><dd>How much an investment gained or lost.</dd></div>
+      <div><dt>Dividend</dt><dd>Part of a company's profit paid to shareholders.</dd></div>
+      <div><dt>Earnings</dt><dd>How much profit a company makes.</dd></div>
+      <div><dt>Risk</dt><dd>The chance an investment loses value.</dd></div>
+      <div><dt>Diversification</dt><dd>Spreading money across many investments.</dd></div>
+      <div><dt>Index fund</dt><dd>A fund that holds every company in an index.</dd></div>
+      <div><dt>Decision Score</dt><dd>Mintly's score for how well you decided, not how the price moved.</dd></div>
+    </dl>
+
+    <h2>What's next</h2>
+    <p>You've finished the Financial Literacy course. Now put it into practice: research a real company, ask Leaf, and make your own Buy, Sell or Wait decision in the simulation. <a href="../index.html#simulate"><strong>Try the simulation →</strong></a></p>
+  </article>
+
+  <section class="quiz">
+    <div class="quiz-box">
+      <h2>Quick check</h2>
+
+      <div class="quiz-question">1. What do you own when you buy a share of a company's stock?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">A loan to the company</button>
+        <button class="quiz-option" data-correct="true">A small piece of the company</button>
+        <button class="quiz-option" data-correct="false">A guaranteed part of its profits</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">2. Which money should stay in savings, not be invested?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Money you won't need for 10 years</button>
+        <button class="quiz-option" data-correct="true">Your emergency fund</button>
+        <button class="quiz-option" data-correct="false">Money you're happy to leave alone through ups and downs</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">3. You own 10 companies equally and one falls 50%. Others stay flat. How much of your total do you lose?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">50%</button>
+        <button class="quiz-option" data-correct="true">5%</button>
+        <button class="quiz-option" data-correct="false">10%</button>
+      </div>
+      <div class="quiz-feedback"></div>
+
+      <div class="quiz-question">4. In Mintly, what does your Decision Score measure?</div>
+      <div class="quiz-options" data-quiz>
+        <button class="quiz-option" data-correct="false">Whether the stock price went up</button>
+        <button class="quiz-option" data-correct="true">How well you researched, reasoned and weighed the risks</button>
+        <button class="quiz-option" data-correct="false">How fast you made your decision</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+  </section>
+  <div class="lesson-nav">
+    <a class="btn btn-secondary" href="financial-literacy.html">← All lessons</a>
+    <button class="btn" id="complete-btn">Mark lesson complete ✓</button>
+  </div>
+  <nav class="lesson-pager" aria-label="Lesson navigation">
+    <a class="prev" href="lesson-4.html">← Lesson 4: How banks work</a>
+    <a class="next" href="../index.html#simulate">Try the simulation →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Mintly · Financial learning for the next generation</div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+  document.querySelectorAll('[data-quiz]').forEach((group) => {
+    const feedback = group.nextElementSibling;
+    group.querySelectorAll('.quiz-option').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (group.dataset.answered) return;
+        group.dataset.answered = 'true';
+        const isCorrect = btn.dataset.correct === 'true';
+        btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+        if (!isCorrect) {
+          group.querySelector('[data-correct="true"]').classList.add('correct');
+        }
+        feedback.textContent = isCorrect ? 'Correct! Nice work.' : 'Not quite — the correct answer is highlighted.';
+        feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
+      });
+    });
+  });
+
+  // --- Typed answers: saved in this browser so they survive a reload ---
+  const ANSWER_KEY = 'mintly:lesson-5:answers';
+  function loadAnswers() {
+    try { return JSON.parse(localStorage.getItem(ANSWER_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveAnswer(key, value) {
+    const answers = loadAnswers();
+    answers[key] = value;
+    try { localStorage.setItem(ANSWER_KEY, JSON.stringify(answers)); } catch (e) {}
+  }
+
+  const warmupEcho = document.getElementById('warmup-echo');
+  function renderWarmupEcho() {
+    const text = (loadAnswers().warmup || '').trim();
+    if (warmupEcho && text) {
+      warmupEcho.textContent = text;
+      warmupEcho.classList.add('filled');
+    }
+  }
+
+  const saved = loadAnswers();
+  document.querySelectorAll('[data-save]').forEach((box) => {
+    const key = box.dataset.save;
+    if (saved[key]) box.value = saved[key];
+    box.addEventListener('input', () => {
+      saveAnswer(key, box.value);
+      if (key === 'warmup') renderWarmupEcho();
+    });
+  });
+  renderWarmupEcho();
+
+  document.querySelectorAll('[data-lock]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = document.getElementById(btn.dataset.lock);
+      const status = document.getElementById('warmup-status');
+      if (box.value.trim().length < 10) {
+        status.textContent = 'Write a little more first, even one full sentence.';
+        return;
+      }
+      saveAnswer(box.dataset.save, box.value);
+      renderWarmupEcho();
+      status.textContent = 'Saved. You\'ll see this again at the end of the lesson.';
+    });
+  });
+
+  // "Compare with a sample answer": only after the student has written something.
+  document.querySelectorAll('[data-reveal]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = document.getElementById(btn.dataset.needs);
+      const status = document.getElementById(btn.dataset.needs + '-status');
+      if (box.value.trim().length < 20) {
+        status.textContent = 'Write your own answer first, then compare.';
+        box.focus();
+        return;
+      }
+      status.textContent = '';
+      document.getElementById(btn.dataset.reveal).hidden = false;
+    });
+  });
+
+  // --- Matching: tap a word, then its definition (or the other way round) ---
+  const game = document.getElementById('match-game');
+  if (game) {
+    const matchStatus = document.getElementById('match-status');
+    const totalPairs = game.querySelectorAll('[data-term]').length;
+    let picked = null;
+    let matched = 0;
+    const keyOf = (el) => el.dataset.term || el.dataset.def;
+    game.querySelectorAll('.match-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('matched')) return;
+        if (!picked || picked.classList.contains('def') === item.classList.contains('def')) {
+          if (picked) picked.classList.remove('selected');
+          picked = item;
+          item.classList.add('selected');
+          return;
+        }
+        const first = picked;
+        picked = null;
+        first.classList.remove('selected');
+        if (keyOf(first) === keyOf(item)) {
+          [first, item].forEach((el) => {
+            el.classList.add('matched');
+            el.setAttribute('aria-disabled', 'true');
+          });
+          matched += 1;
+          const term = game.querySelector('[data-term="' + keyOf(item) + '"]').textContent;
+          matchStatus.textContent = matched === totalPairs
+            ? 'All ' + totalPairs + ' matched! You know the key words.'
+            : 'Yes, that\'s ' + term + '. ' + matched + ' of ' + totalPairs + ' matched.';
+        } else {
+          [first, item].forEach((el) => {
+            el.classList.add('wrong');
+            setTimeout(() => el.classList.remove('wrong'), 600);
+          });
+          matchStatus.textContent = 'Not quite. Try a different pair. ' + matched + ' of ' + totalPairs + ' matched.';
+        }
+      });
+    });
+  }
+
+  // --- Fill in the blank: hint after one miss, answer after three ---
+  document.querySelectorAll('.blank-row').forEach((row) => {
+    const input = row.querySelector('.blank-input');
+    const status = row.querySelector('.blank-status');
+    const answers = row.dataset.answers.split('|');
+    let misses = 0;
+    function check() {
+      const guess = input.value.trim().toLowerCase();
+      if (!guess) return;
+      if (answers.includes(guess)) {
+        row.classList.add('right');
+        row.classList.remove('miss');
+        input.readOnly = true;
+        status.textContent = 'Correct';
+        return;
+      }
+      misses += 1;
+      row.classList.add('miss');
+      if (misses >= 3) {
+        status.textContent = 'The answer is "' + answers[0] + '".';
+      } else {
+        status.textContent = 'Not quite. Hint: it starts with "' + answers[0][0] + '".';
+      }
+    }
+    row.querySelector('button').addEventListener('click', check);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') check();
+    });
+  });
+
+  function money(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  // --- Diversification: $100 split equally, one company drops ---
+  const divCount = document.getElementById('div-count');
+  const divDrop = document.getElementById('div-drop');
+  function updateDiv() {
+    const n = Number(divCount.value);
+    const drop = Number(divDrop.value);
+    const loss = 100 / n * drop;
+    const fmt = (v) => '$' + (Math.round(v * 100) / 100).toFixed(v % 1 ? 2 : 0);
+    document.getElementById('div-loss').textContent = fmt(loss);
+    document.getElementById('div-left').textContent = fmt(100 - loss);
+    document.getElementById('div-note').textContent = n === 1
+      ? 'With one company, its bad year is your bad year. Try owning more companies.'
+      : 'Each company is only ' + fmt(100 / n) + ' of your money, so the crash costs you ' + (Math.round(loss * 10) / 10) + '% of the total instead of ' + Math.round(drop * 100) + '%.';
+  }
+  [divCount, divDrop].forEach((el) => el.addEventListener('input', updateDiv));
+  updateDiv();
+
+  const completeBtn = document.getElementById('complete-btn');
+  function renderComplete() {
+    if (Mintly.isLessonComplete('lesson-5')) {
+      completeBtn.textContent = '✓ Lesson complete';
+      completeBtn.classList.add('done');
+    }
+  }
+  completeBtn.addEventListener('click', () => {
+    Mintly.markLessonComplete('lesson-5');
+    renderComplete();
+  });
+  renderComplete();
+</script>
+</body>
+</html>

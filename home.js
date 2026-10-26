@@ -78,7 +78,7 @@
       }
     });
     const total = Mintly.LESSON_IDS.length;
-    $("hm-progress").textContent = done ? done + " of " + total + " lessons complete." : "Two lessons are ready now. More are on the way.";
+    $("hm-progress").textContent = done ? done + " of " + total + " lessons complete." : "Five lessons are ready now. More are on the way.";
   }
 
   function initReveal() {

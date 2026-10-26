@@ -52,9 +52,14 @@
     document.querySelector('.icon-big').textContent = '🃏';
     document.querySelector('h2').textContent = 'Collectables — coming very soon';
   } else {
+    const next = Mintly.nextLesson();
+    const nextNum = Mintly.LESSON_IDS.indexOf(next.id) + 1;
     document.getElementById('lock-message').textContent =
       "You've completed " + Mintly.completedCount() + " of " + Mintly.LESSON_IDS.length +
       " Financial Literacy lessons. Finish them all to unlock this course.";
+    const cta = document.getElementById('lock-cta');
+    cta.href = next.id + '.html';
+    cta.textContent = 'Continue with lesson ' + nextNum + ': ' + next.title;
   }
 </script>
 </body>

@@ -189,6 +189,8 @@ http
       return res.end("Bad request");
     }
     const symbol = (url.searchParams.get("symbol") || "").toUpperCase();
+    // lets the page check for a key before polling, so a keyless server doesn't log errors every 10s
+    if (pathname === "/api/status") return send(res, 200, { live: !!KEY, premium: PREMIUM });
     if (pathname === "/api/quote") return quote(res, symbol);
     if (pathname === "/api/chart") return chart(res, symbol, url.searchParams.get("range") || "1M");
 

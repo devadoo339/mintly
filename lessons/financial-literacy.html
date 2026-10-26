@@ -34,30 +34,45 @@
   <div class="wrap page-header">
     <div class="eyebrow">Course</div>
     <h1>Financial Literacy</h1>
-    <p>The essentials every teen should know: what money is, how to budget it, and how to make it grow. Start with lesson one.</p>
+    <p>The essentials every teen should know: what money is, how to budget and save it, how banks work, and how investing makes it grow. Five short lessons, best taken in order.</p>
+    <div class="course-progress">
+      <div class="progress-track" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="course-bar"><div class="progress-fill" id="course-fill" style="width:0%"></div></div>
+      <div class="label" id="course-label">0 of 5 lessons complete</div>
+    </div>
+    <a class="btn" href="lesson-1.html" id="continue-btn">Start lesson 1 →</a>
   </div>
 
-  <div class="wrap lesson-list">
+  <div class="wrap lesson-list" id="lesson-list">
     <a class="lesson-row" href="lesson-1.html" id="row-lesson-1">
       <span class="num">1</span>
       <span class="title">What is financial literacy?</span>
+      <span class="time">20 min</span>
       <span class="go" id="go-lesson-1">Start →</span>
     </a>
     <a class="lesson-row" href="lesson-2.html" id="row-lesson-2">
       <span class="num">2</span>
       <span class="title">Needs vs. wants: building a simple budget</span>
+      <span class="time">10 min</span>
       <span class="go" id="go-lesson-2">Start →</span>
     </a>
-    <div class="lesson-row locked">
+    <a class="lesson-row" href="lesson-3.html" id="row-lesson-3">
       <span class="num">3</span>
-      <span class="title">Saving and how compound interest works</span>
-      <span class="badge-soon">Soon</span>
-    </div>
-    <div class="lesson-row locked">
+      <span class="title">Saving for something you want</span>
+      <span class="time">12 min</span>
+      <span class="go" id="go-lesson-3">Start →</span>
+    </a>
+    <a class="lesson-row" href="lesson-4.html" id="row-lesson-4">
       <span class="num">4</span>
-      <span class="title">Banks, debit cards, and credit basics</span>
-      <span class="badge-soon">Soon</span>
-    </div>
+      <span class="title">How banks work: accounts, debit cards and interest</span>
+      <span class="time">12 min</span>
+      <span class="go" id="go-lesson-4">Start →</span>
+    </a>
+    <a class="lesson-row" href="lesson-5.html" id="row-lesson-5">
+      <span class="num">5</span>
+      <span class="title">Intro to investing: stocks, risk and diversification</span>
+      <span class="time">15 min</span>
+      <span class="go" id="go-lesson-5">Start →</span>
+    </a>
 
     <div class="next-course">
       <div class="icon">🔒</div>
@@ -65,7 +80,7 @@
         <div class="title">Collectables</div>
         <div class="desc">Unlocks after you complete every lesson above</div>
       </div>
-      <div class="progress" id="course-progress">0 of 4 complete</div>
+      <div class="progress" id="course-progress">0 of 5 complete</div>
     </div>
   </div>
 </main>
@@ -77,13 +92,27 @@
 <script src="../script.js"></script>
 <script>
   Mintly.requireSubscription();
-  ["lesson-1", "lesson-2"].forEach((id) => {
+  const total = Mintly.LESSON_IDS.length;
+  const done = Mintly.completedCount();
+  Mintly.LESSON_IDS.forEach((id) => {
     if (Mintly.isLessonComplete(id)) {
       document.getElementById("go-" + id).textContent = "✓ Complete — review";
+      document.getElementById("row-" + id).classList.add("done");
     }
   });
-  document.getElementById("course-progress").textContent =
-    Mintly.completedCount() + " of " + Mintly.LESSON_IDS.length + " complete";
+  const next = Mintly.nextLesson();
+  const nextNum = Mintly.LESSON_IDS.indexOf(next.id) + 1;
+  const cont = document.getElementById("continue-btn");
+  cont.href = next.id + ".html";
+  cont.textContent = done === 0 ? "Start lesson 1 →"
+    : done === total ? "Review from lesson 1 →"
+    : "Continue: lesson " + nextNum + " →";
+  if (done > 0 && done < total) document.getElementById("go-" + next.id).textContent = "Up next →";
+  document.getElementById("course-fill").style.width = Math.round(done / total * 100) + "%";
+  document.getElementById("course-bar").setAttribute("aria-valuenow", done);
+  document.getElementById("course-label").textContent =
+    done + " of " + total + " lessons complete" + (done === total ? " · Collectables and Cryptocurrencies are unlocked" : "");
+  document.getElementById("course-progress").textContent = done + " of " + total + " complete";
 </script>
 </body>
 </html>
