@@ -25,6 +25,11 @@
   --pgreen: #2F7D58;
   --ppeach: #F6B8A8;
 
+  /* dark-to-light green gradient for the Why Mintly feature icons */
+  --feature-green-1: #1E5B3E;
+  --feature-green-2: #2F8558;
+  --feature-green-3: #8FD4AE;
+
   /* legacy site names, now driven by the demo accent */
   --mint: var(--acc);
   --mint-dark: var(--acct);
@@ -58,6 +63,7 @@
     --bg: #0E0E0E; --panel: #181817; --ink: #F5F5F4; --muted: #9A9A95; --border: #2A2A28;
     --acc: #A8DDC0; --acct: #A8DDC0; --accsoft: #16301F; --onacc: #0E0E0E;
     --gain: #3DD68C; --gainsoft: #0F2A1D; --bad: #FF7A5C; --badsoft: #3A1D16; --shadow: rgba(0, 0, 0, .6); --pgreen: #A8DDC0;
+    --feature-green-1: #1D4631; --feature-green-2: #2F7D58; --feature-green-3: #8FD4AE;
     color-scheme: dark;
   }
 }
@@ -65,6 +71,7 @@
   --bg: #0E0E0E; --panel: #181817; --ink: #F5F5F4; --muted: #9A9A95; --border: #2A2A28;
   --acc: #A8DDC0; --acct: #A8DDC0; --accsoft: #16301F; --onacc: #0E0E0E;
   --gain: #3DD68C; --gainsoft: #0F2A1D; --bad: #FF7A5C; --badsoft: #3A1D16; --shadow: rgba(0, 0, 0, .6); --pgreen: #A8DDC0;
+  --feature-green-1: #1D4631; --feature-green-2: #2F7D58; --feature-green-3: #8FD4AE;
   color-scheme: dark;
 }
 
@@ -329,6 +336,11 @@ h1, h2, h3, .brand { font-family: var(--font-head); }
 .bg-blue { background: var(--blue); }
 .bg-purple { background: var(--purple); }
 .bg-peach { background: var(--peach); }
+
+/* Why Mintly feature icons: dark green -> green -> light green */
+.icon-green-1 { background: var(--feature-green-1); }
+.icon-green-2 { background: var(--feature-green-2); }
+.icon-green-3 { background: var(--feature-green-3); }
 
 /* Feature grid */
 .section-eyebrow {
