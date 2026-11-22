@@ -391,6 +391,7 @@
   [bankAmount, bankYears, bankRate].forEach((el) => el.addEventListener('input', updateBank));
   updateBank();
 
+  Mintly.requireSubscription();
   Mintly.initLessonQuiz('lesson-4');
 </script>
 </body>
